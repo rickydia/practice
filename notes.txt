@@ -1,0 +1,161 @@
+Python notes
+
+COMMENTS
+	Comments are formed using the #
+	eg
+		# this would be a note
+
+	To have comments on multiple lines, start and end with """
+	eg
+		""" this 
+		is
+		all
+		commented
+		out """
+
+
+VARIABLES
+	No need to define type, does it by itself
+	
+	ints, bools, floats(basically a double, but less precise... floats can store 7 digits, doubles can store 15-16), strings are all native to python
+
+	Bool
+		bool_true = True
+		bool_false = False
+
+	Strings
+		can use either ' ' or " "
+		
+		in order to use an apostraphe, use the \ (' There\'s a snake in my boot')
+		
+		to access a specific letter in a string
+			fifth_letter = "PYTHON"[4]    #this is the N
+						OR
+			foo = "PYTHON"
+			fifth_letter = foo[4]         #this is the N
+						OR
+			foo = "PYTHON"
+			letters = foo[0:3]            #this is PYTH
+
+		len()
+			gives length of string
+			foo = "poop head"
+			len(foo)                      #this is 9
+
+		str()
+			turns whatever it is into a string
+			pi = 3.14
+			str(pi)                       #this is "3.14"
+			
+		lower()
+			makes all the letters lower case
+			foo = "Poop Head"
+			foo.lower()                   #this is "poop head"
+
+		upper()
+			makes all the letters upper case
+			foo = "Poop Head"
+			foo.upper()                   #this is "POOP HEAD"
+
+
+MATHEMATICAL SIGNS
+	+ - * / %   all work normally
+	**          is used for exponents
+
+
+PRINT
+	can only print out strings
+
+	print("PYTHON BITCH")
+				OR
+	foo = "PYTHON BITCH"
+	print(foo)
+
+	# Not a good way to do it
+	String Concatenation
+		print("Life " + "of " + "Brian")
+
+	Explicit String Conversion
+		print("The value of pi is around " + str(3.14))
+
+	String Formatting with %
+		string_1 = "Camelot"
+		string_2 = "place"
+
+		print("Let's not go to %s. 'Tis a silly %s." % (string_1, string_2))	
+
+
+DATETIME
+	from datetime import datetime
+	
+	datetime.now()
+		prints the current date and time
+			2017-04-29 23:45:14.317454
+		
+		if you don't want the whole date and time:
+			now = datetime.now()
+
+			current_year = now.year
+			current_month = now.month
+			current_day = now.day
+			print('%s/%s/%s' % (current_month, current_day, current_year)) #prints 4/29/17
+
+			current_hour = now.hour
+			current_minute = now.minute
+			current_second = now.second
+			print('%s:%s:%s' % (current_hour, current_minute, current_second)) #prints 23:45:14
+	
+
+FUNCTIONS
+	def spam()
+		jhsdjhdhj
+		djdjsjh
+
+
+CONTROL FLOW
+	input
+		answer = raw_input("Type left or right, then hit 'Enter'.").lower()
+	if
+		if answer == "left"
+			do this
+	elif
+		elif answer == "right"
+			do this
+	else
+		else:
+			do this
+
+COMPARITORS
+	==
+		equal to
+	!=
+		not equal to
+	<
+		less than
+	>
+		greater than
+	<=
+		less than or equal to
+	>=
+		greater than or equal to
+	not
+		gives opposite of the statement
+	and
+		checks if both are True
+	or
+		checks if one if True
+		
+		not is evaluated first
+		and is evaluated next
+		or is evaluated last
+
+
+
+
+
+
+
+
+
+
+

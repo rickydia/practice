@@ -107,7 +107,7 @@ DATETIME
 	
 
 FUNCTIONS
-	def spam()
+	def spam():
 		jhsdjhdhj
 		djdjsjh
 
@@ -116,10 +116,10 @@ CONTROL FLOW
 	input
 		answer = raw_input("Type left or right, then hit 'Enter'.").lower()
 	if
-		if answer == "left"
+		if answer == "left":
 			do this
 	elif
-		elif answer == "right"
+		elif answer == "right":
 			do this
 	else
 		else:
@@ -148,6 +148,51 @@ COMPARITORS
 		not is evaluated first
 		and is evaluated next
 		or is evaluated last
+
+
+LISTS
+	0 indexed
+
+	if trying to get a portion, [inclusive, exclusive)
+		letters = ['a', 'b', 'c', 'd']
+		aAndB = letters[0:2]
+	
+	finding index
+		letters = ['a', 'b', 'c', 'd']
+		index = letters.index('b')                            #returns 1
+		
+	inserting
+		letters = ['a', 'b', 'c', 'd']
+		letters.insert(1, 'a.5')
+
+	appending
+		letters = ['a', 'b', 'c', 'd']
+		letters.append('e')                                   #adds e to the end of letters
+
+	sort
+		letters = ['c', 'b', 'a', 'd']
+		letters.sort()
+
+
+FOR LOOPS
+	my_list = [1,9,3,8,5,7]
+	new_list = []
+
+	for number in my_list:
+		new_list.append(number * 2)
+
+	
+DICTIONARY/KEYS
+	d = {'key1' : 1, 'key2', : 2, 'key3' : 3}
+	print d['key1']                                           #prints 1
+	
+	
+	
+	
+
+
+
+
 
 
 

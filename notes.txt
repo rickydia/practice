@@ -61,6 +61,7 @@ VARIABLES
 MATHEMATICAL SIGNS
 	+ - * / %   all work normally
 	**          is used for exponents
+	//          is used for floor division
 
 
 PRINT
@@ -150,6 +151,11 @@ COMPARITORS
 		or is evaluated last
 
 
+INCREMENT OPERATORS
+	+=, -=, *=, /=, %=, **=, and //= work
+
+	++, -- DON'T WORK
+
 LISTS
 	0 indexed
 
@@ -173,7 +179,33 @@ LISTS
 		letters = ['c', 'b', 'a', 'd']
 		letters.sort()
 
+	removing items
+		letters = ['c', 'b', 'a', 'd']
+		letters.remove('a')
 
+
+DICTIONARY/KEYS
+	d = {'key1' : 1, 'key2' : 2, 'key3' : 3}
+	print d['key1']                                           #prints 1
+
+	#Dictionaries can have multiple types of values
+	inventory = {
+	  'gold' : 500,
+	  'pouch' : ['flint', 'twine', 'gemstone'],
+	  'backpack' : ['xylophone','dagger', 'bedroll','bread loaf'] 
+	}	
+
+	#in order to access 'flint' in the 'pouch', do this
+	inventory['pouch'][0]
+
+	empty dictionaries
+		menu = {}
+	
+	deleting a dictionary
+		letters = ['a' : 1, 'b' : 2, 'c' : 3, 'd' : 4]
+		del letters['a']
+	
+	
 FOR LOOPS
 	my_list = [1,9,3,8,5,7]
 	new_list = []
@@ -181,16 +213,23 @@ FOR LOOPS
 	for number in my_list:
 		new_list.append(number * 2)
 
-	
-DICTIONARY/KEYS
-	d = {'key1' : 1, 'key2', : 2, 'key3' : 3}
-	print d['key1']                                           #prints 1
-	
-	
-	
-	
+	for loop with dictionary
+		webster = {
+			"Aardvark" : "A star of a popular cartoon show.",
+			"Baa" : "The sound a goat makes.", 
+			"Carpet": "Goes on the floor.", 
+			"Dab": "A small amount."
+		}
+		
+		for word in webster:
+			print(webster[word])	
 
+	for loop with limitation
+		a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
+		for number in a:
+			if number%2 == 0:
+			print(number)
 
 
 

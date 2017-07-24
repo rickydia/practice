@@ -29,33 +29,33 @@ VARIABLES
 		in order to use an apostraphe, use the \ (' There\'s a snake in my boot')
 		
 		to access a specific letter in a string
-			fifth_letter = "PYTHON"[4]    #this is the N
+			fifth_letter = "PYTHON"[4]    # this is the N
 						OR
 			foo = "PYTHON"
-			fifth_letter = foo[4]         #this is the N
+			fifth_letter = foo[4]         # this is the N
 						OR
 			foo = "PYTHON"
-			letters = foo[0:3]            #this is PYTH
+			letters = foo[0:3]            # this is PYTH
 
 		len()
 			gives length of string
 			foo = "poop head"
-			len(foo)                      #this is 9
+			len(foo)                      # this is 9
 
 		str()
 			turns whatever it is into a string
 			pi = 3.14
-			str(pi)                       #this is "3.14"
+			str(pi)                       # this is "3.14"
 			
 		lower()
 			makes all the letters lower case
 			foo = "Poop Head"
-			foo.lower()                   #this is "poop head"
+			foo.lower()                   # this is "poop head"
 
 		upper()
 			makes all the letters upper case
 			foo = "Poop Head"
-			foo.upper()                   #this is "POOP HEAD"
+			foo.upper()                   # this is "POOP HEAD"
 
 
 MATHEMATICAL SIGNS
@@ -85,6 +85,11 @@ PRINT
 
 		print("Let's not go to %s. 'Tis a silly %s." % (string_1, string_2))	
 
+	join
+		letters = ['a', 'b', 'c', 'd']
+		print(" ".join(letters))                                         # prints a b c d
+		print("---".join(letters))                                       # prints a---b---c---d
+
 
 DATETIME
 	from datetime import datetime
@@ -99,18 +104,21 @@ DATETIME
 			current_year = now.year
 			current_month = now.month
 			current_day = now.day
-			print('%s/%s/%s' % (current_month, current_day, current_year)) #prints 4/29/17
+			print('%s/%s/%s' % (current_month, current_day, current_year)) # prints 4/29/17
 
 			current_hour = now.hour
 			current_minute = now.minute
 			current_second = now.second
-			print('%s:%s:%s' % (current_hour, current_minute, current_second)) #prints 23:45:14
+			print('%s:%s:%s' % (current_hour, current_minute, current_second)) # prints 23:45:14
 	
 
 FUNCTIONS
-	def spam():
+	def spam():                                            # how a function should be laid out
 		jhsdjhdhj
 		djdjsjh
+	
+	from random import randint
+	randint(low, high)                                     # prints a random int between the low and high
 
 
 CONTROL FLOW
@@ -165,7 +173,7 @@ LISTS
 	
 	finding index
 		letters = ['a', 'b', 'c', 'd']
-		index = letters.index('b')                            #returns 1
+		index = letters.index('b')                            # returns 1
 		
 	inserting
 		letters = ['a', 'b', 'c', 'd']
@@ -173,7 +181,7 @@ LISTS
 
 	appending
 		letters = ['a', 'b', 'c', 'd']
-		letters.append('e')                                   #adds e to the end of letters
+		letters.append('e')                                   # adds e to the end of letters
 
 	sort
 		letters = ['c', 'b', 'a', 'd']
@@ -183,10 +191,18 @@ LISTS
 		letters = ['c', 'b', 'a', 'd']
 		letters.remove('a')
 
+	sum
+		numbers = [1, 2, 3, 4, 5]
+		total = sum(numbers)                                  # returns 15
+	
+	pop
+		numbers = [1, 2, 3, 4, 5]                             # removes the item from index 1 and
+		numbers.pop(1)                                        # returns it to you
+
 
 DICTIONARY/KEYS
 	d = {'key1' : 1, 'key2' : 2, 'key3' : 3}
-	print d['key1']                                           #prints 1
+	print d['key1']                                           # prints 1
 
 	#Dictionaries can have multiple types of values
 	inventory = {
@@ -229,12 +245,25 @@ FOR LOOPS
 
 		for number in a:
 			if number%2 == 0:
-			print(number)
+				print(number)
+
+	range
+		range(stop)
+		range(start, stop)
+		range(start, stop, step)
+
+		numbers = [0,1,2,3,4,5]
+		range(6)                                              # [0,1,2,3,4,5]
+		range(1,6)											  # [1,2,3,4,5]
+		range(1,6,3)                                          # [1,4]
 
 
-
-
-
+USER INPUT
+	raw_input
+		asks user for input and returns it as a string
+		number = raw_input("Enter a number: ")
+		if int(number) == 0:
+			do this
 
 
 

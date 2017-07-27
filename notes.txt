@@ -29,33 +29,33 @@ VARIABLES
 		in order to use an apostraphe, use the \ (' There\'s a snake in my boot')
 		
 		to access a specific letter in a string
-			fifth_letter = "PYTHON"[4]    # this is the N
+			fifth_letter = "PYTHON"[4]                        # this is the N
 						OR
 			foo = "PYTHON"
-			fifth_letter = foo[4]         # this is the N
+			fifth_letter = foo[4]                             # this is the N
 						OR
 			foo = "PYTHON"
-			letters = foo[0:3]            # this is PYTH
+			letters = foo[0:3]                                # this is PYTH
 
 		len()
 			gives length of string
 			foo = "poop head"
-			len(foo)                      # this is 9
+			len(foo)                                          # this is 9
 
 		str()
 			turns whatever it is into a string
 			pi = 3.14
-			str(pi)                       # this is "3.14"
+			str(pi)                                           # this is "3.14"
 			
 		lower()
 			makes all the letters lower case
 			foo = "Poop Head"
-			foo.lower()                   # this is "poop head"
+			foo.lower()                                       # this is "poop head"
 
 		upper()
 			makes all the letters upper case
 			foo = "Poop Head"
-			foo.upper()                   # this is "POOP HEAD"
+			foo.upper()                                       # this is "POOP HEAD"
 
 
 MATHEMATICAL SIGNS
@@ -87,8 +87,8 @@ PRINT
 
 	join
 		letters = ['a', 'b', 'c', 'd']
-		print(" ".join(letters))                                         # prints a b c d
-		print("---".join(letters))                                       # prints a---b---c---d
+		print(" ".join(letters))                              # prints a b c d
+		print("---".join(letters))                            # prints a---b---c---d
 
 
 DATETIME
@@ -112,13 +112,21 @@ DATETIME
 			print('%s:%s:%s' % (current_hour, current_minute, current_second)) # prints 23:45:14
 	
 
+USER INPUT
+	raw_input
+		asks user for input and returns it as a string
+		number = raw_input("Enter a number: ")
+		if int(number) == 0:
+			do this
+
+
 FUNCTIONS
-	def spam():                                            # how a function should be laid out
+	def spam():                                               # how a function should be laid out
 		jhsdjhdhj
 		djdjsjh
 	
 	from random import randint
-	randint(low, high)                                     # prints a random int between the low and high
+	randint(low, high)                                        # prints a random int between the low and high
 
 
 CONTROL FLOW
@@ -224,11 +232,15 @@ DICTIONARY/KEYS
 	
 	
 FOR LOOPS
-	my_list = [1,9,3,8,5,7]
-	new_list = []
+	for/else
+		executed after for only if not ended with break
 
-	for number in my_list:
-		new_list.append(number * 2)
+	general for loop
+		my_list = [1,9,3,8,5,7]
+		new_list = []
+
+		for number in my_list:
+			new_list.append(number * 2)
 
 	for loop with dictionary
 		webster = {
@@ -258,16 +270,25 @@ FOR LOOPS
 		range(1,6)											  # [1,2,3,4,5]
 		range(1,6,3)                                          # [1,4]
 
+	enumerate
+		gives index with a for loop
 
-USER INPUT
-	raw_input
-		asks user for input and returns it as a string
-		number = raw_input("Enter a number: ")
-		if int(number) == 0:
-			do this
+		choices = ['a', 'b', 'c', 'd']
+		for index, item in enumerate(choices):
+			print index, item                                 # prints 0 a ...
+	
+	zip
+		allows iteration through two things
+
+		list_a = [3, 9, 17, 15, 19]
+		list_b = [2, 4, 8, 10, 30, 40, 50, 60, 70, 80, 90]
+		for a, b in zip(list_a, list_b):
 
 
-
+WHILE LOOPS
+	while/else
+		the else block will execute anytime the loop condition is evaluated to False.
+		If the loop exits as the result of a break, the else will not be executed.
 
 
 

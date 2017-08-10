@@ -179,6 +179,12 @@ COMPARITORS
 		and is evaluated next
 		or is evaluated last
 
+	is
+		used to check if two items are the same object
+			money = 12
+			cash = money
+			money is cash								      # results in true
+
 
 INCREMENT OPERATORS
 	+=, -=, *=, /=, %=, **=, and //= work
@@ -390,12 +396,29 @@ EXCEPTIONS
 
 
 CLASSES
-	class Point:
+	class Rectangle:
 		pass
 	
+	box = Rectangle()
+	box.width = 100.0                                         # width and height don't need to be 
+	box.height = 200.0                                          member variables???
 
+	copying
+		the copy module contains a function that can duplicate any object.
 
+		shallow copy
+			import copy
+			p1 = Point()
+			p1.x = 3
+			p1.y = 4
+			p2 = copy.copy(p1)
+			p1 == p2											  # false
+			samePoint(p1, p2)                                     # true
+		
+		deep copy
+			p2 = copy.deepcopy(p1)
 
+	
 
 
 

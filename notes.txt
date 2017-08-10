@@ -83,7 +83,20 @@ PRINT
 		string_1 = "Camelot"
 		string_2 = "place"
 
-		print("Let's not go to %s. 'Tis a silly %s." % (string_1, string_2))	
+		print("Let's not go to %s. 'Tis a silly %s." % (string_1, string_2))
+
+	% operator
+		%s - formatted as a string
+		%d - formatted as an integer
+		%f - formatted as a floating-point number
+
+		%3d
+			minumum number of spaces the number will take. If value provided takes fewer digits,
+			leading spaces are added
+		%-3d
+			same ^ but adds trailing spaces
+		%2.2f
+			for floating-point numbers, we can specify how many digits after decimal point
 
 	join
 		letters = ['a', 'b', 'c', 'd']
@@ -289,6 +302,112 @@ WHILE LOOPS
 	while/else
 		the else block will execute anytime the loop condition is evaluated to False.
 		If the loop exits as the result of a break, the else will not be executed.
+
+	break
+		exits a loop
+	
+	continue
+		causes current iteration of a loop to end. flow goes back to top and reevaluates
+		flow condition
+
+
+FILE IO
+	opening files
+		f = open("test.dat", "w")
+
+		first thing in the open funtion is the file being opened, the second is the mode.
+
+		"w" - opening file for writing
+			f.write("blah bitch")
+
+		"r" - opening file for reading
+			f.open("test.dat", "r")
+			text = f.read()
+			print(text)                                       # prints out blah bitch
+
+			f.open("test.dat", "r")
+			text2 = f.read(3)                                 # only reads in 3 characters
+			print(text2)                                      # prints out bla
+
+	closing files
+		f.close()
+
+	text files
+		\nline
+			prints the stuff after it on a new line - kinda like \n
+
+		readline()
+			reads all the stuff on the line up until the next newline character
+
+			f = open("test.dat", "r")
+			firstLine = f.readline()
+
+		readlines()
+			reads the rest of the remaining lines as a list of strings
+
+	directories
+		f = open("/usr/share/dict/words", "r")
+	
+	pickle
+		import pickle
+			when writing things into a file, you have to write it as a string, so this allows
+			you to preserve the data type
+
+		writing with pickle
+			import pickle
+			f = open("test.pck", "w")
+			pickle.dump(12.3, f)
+			pickle.dump([1,2,3], f)
+			f.close()
+		
+		reading with pickle
+			import pickle
+			f = open("test.pck", "r")
+			x = pickle.load(f)                                # x is 12.3, with type 'float'
+			y = pickle.load(f)								  # y is [1,2,3], with type list
+	
+
+EXCEPTIONS
+	try/except blocks
+		should check if file opens with try/except blocks
+		
+		filename = raw_input('Enter a file name: ')
+		try:
+			f = open(filename, "r")
+		except IOError:
+			print("no file named", filename)
+
+	raise
+		if program detects an error condition, can raise an exception
+		
+		takes in two arguements: exception type, and specific info over error
+
+		def inputNumber () :
+			x = input (’Pick a number: ’)
+			if x == 17 :
+				raise ValueError, ’17 is a bad number’
+			return x
+
+
+CLASSES
+	class Point:
+		pass
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

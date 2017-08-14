@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 print("Hello, World")
 
 spam = 4
@@ -22,7 +24,7 @@ if is_prime(5) == False:
     print("damn")
 
 else:
-    print("its dumb")
+    print("it dumb")
 
 def reverse(text):
     result = ""

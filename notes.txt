@@ -418,7 +418,33 @@ CLASSES
 		deep copy
 			p2 = copy.deepcopy(p1)
 
+	class Time:
+		def printTime(time):
+			print str(time.hours) + ":" + \
+				str(time.minutes) + ":" + \
+				str(time.seconds)
 	
+	 currentTime.printTime()
+	
+	initializing
+		class Time:
+			def __init__(self, hours=0, minutes=0, seconds=0):
+				self.hours = hours
+				self.minutes = minutes
+				self.seconds = seconds
+		
+		currentTime = Time(9, 14, 30)
+
+	overloading
+		class Point:
+			def __init__(self, x=0, y=0):
+				self.x = x
+				self.y = y
+			def __str__(self):
+				return ’(’ + str(self.x) + ’, ’ + str(self.y) + ’)’
+			def __add__(self, other):
+				return Point(self.x + other.x, self.y + other.y)
+
 
 
 

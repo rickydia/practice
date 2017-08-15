@@ -377,7 +377,7 @@ EXCEPTIONS
 	try/except blocks
 		should check if file opens with try/except blocks
 		
-		filename = raw_input('Enter a file name: ')
+		filename = input('Enter a file name: ')
 		try:
 			f = open(filename, "r")
 		except IOError:

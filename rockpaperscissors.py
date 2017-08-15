@@ -5,7 +5,7 @@ from random import randint
 
 print("Hello! Welcome to rock, paper, scissors!")
 while True:
-    player = input("Please enter your choice of 'rock', 'paper', or 'scissors'. If you'd like to quit, enter 'quit':")
+    player = input("Please enter your choice of 'rock', 'paper', or 'scissors'. If you'd like to quit, enter 'quit': ")
     if player != "rock" and player != "paper" and player != "scissors":
         if player == "quit":
             break

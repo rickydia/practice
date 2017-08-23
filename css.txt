@@ -1,0 +1,83 @@
+CSS
+	can write css code within the html file using 
+		<style>
+		</style>
+
+	better
+		make a .css file with all the css code
+
+		<link>
+			links the css file with the html file
+
+			requires href - should be set to path of css file, type - should be set to "text/css", rel - should be set to "stylesheet"
+
+			<link
+				href = "https://www.codeacademy.com/stylesheets/style.css"
+				type = "text/css"
+				rel = "stylesheet">
+
+			href = "/style.css"
+				if .css file is in same directory
+	
+
+BASIC STRUCTURE AND SYNTAX
+	the css selectore essentially matches the html tag for that element but w/o the angled brackets
+
+	if wanting to select <h1>
+		h1 {
+		} 
+
+	if wanting to select all
+		* {
+			font-family: Arial;
+		}
+
+	css declarations
+		need two things within the selected html element
+			property - the property you'd like to style
+
+			value - the value of the property
+
+			h1, h2, p {
+				color: Green;
+			}
+		
+	comments
+		/* psknsdnkjsd */
+
+
+COLORS
+	foreground colors
+		color: Red;
+	
+	background colors
+		background-color: Blue;
+
+	147 named colors
+		google them if needed
+	
+	rgb colors
+		color: rgb(123, 20, 233);
+
+	rgba
+		the 'a' signifies opacity, between 0 and 1, inclusive
+		color: rgba(123, 20, 233, .5)
+
+	hex colors
+		color: #452F73
+	
+	hsl
+		color: hsl(182, 20%, 50%)
+
+	hsla
+		color: hsla(182, 20%, 50%, .4)
+
+	color declarations
+		many older browsers dont support rgba, hsl, hsla
+		so above rgba, hsl, hsla - add reduntent declaration in rgb or something of the sort so that it still has something to do
+		takes the last declaration, but if can't handle last, takes the second to last, etc
+
+
+
+
+

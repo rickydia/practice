@@ -107,10 +107,3 @@ COMMON HTML ELEMENTS
 	comments
 		begin with <!-- and end with -->
 		
-	
-CSS
-	can write css code within the html file using 
-	<style>
-	</style>
-	
-

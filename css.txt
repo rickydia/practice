@@ -78,6 +78,40 @@ COLORS
 		takes the last declaration, but if can't handle last, takes the second to last, etc
 
 	
+FONTS
+	font-family: "Times New Roman";
+
+	serif
+		fonts with little extra ass shit on the edges
+
+	sans-serif
+		w/o extra shit
+
+	h1 {
+		font-family: Garamond, Times, sarif;
+	}
+		uses Garamond first, then Times as a fallback, then if that doesn't work, then any sarif font
+
+	google fonts
+		add the fonts in head
+
+		<link
+			href = "https://fonts.googleapis.com/css?family=Raleway" 
+			type = "text/css" 
+			rel = "stylesheet">
+
+		h1 {
+			font-family: Raleway, Georgia, serif;
+		}
+
+
+
+
+
+
+
+
+
 
 
 

@@ -104,13 +104,75 @@ FONTS
 			font-family: Raleway, Georgia, serif;
 		}
 
+	font size
+		font-size: 18px;
+
+		can use px, %, em
+			px- pixels on screen
+
+			em- change size of font relative to parent element's size of text
+
+			%- relative to default size of web browser
+
+	line height
+		changes the height of the line
+		
+		preffered to use ems
+
+		line-height: 1.5em;
+	
+	word spacing
+		word-spacing: .3em;
+
+		typical is about 0.25em
+
+	letter spacing
+		letter-spacing: .3em;
+
+	font weight
+		whether bold or normal text
+		sets entire block into bold
+
+		font-weight: bold;
+
+		100 - thin
+		200, 300, 400 - normal
+		500, 600, 700, 800, 900 - bold
+	
+	font style
+		italics or normal
+
+		font-style: italic;
+
+	text transformation
+		all appear to be upper or lower cased
+		
+		text-transform: uppercase;
+
+	text alignement
+		align text on left, right, or center
+
+		text-align: right;
 
 
-
-
-
-
-
+CLASSES, IDS, DIVS
+	id
+		#boom {
+			background-color: #56ABFF;
+		}
+	
+		used to target specific headings, paragraphs, etc
+	
+	classes
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 

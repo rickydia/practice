@@ -107,3 +107,26 @@ COMMON HTML ELEMENTS
 	comments
 		begin with <!-- and end with -->
 		
+
+CLASSES, IDS, DIVS
+	id
+		<div id="boom">
+
+		used to target specific headings, paragraphs, etc
+	
+	classes
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -164,9 +164,39 @@ CLASSES, IDS, DIVS
 		used to target specific headings, paragraphs, etc
 	
 	classes
+		.science {	
+			background-color: #56ABFF;
+		}
+
+		p.science {
+			line-height: 1.3em;
+		}
+
+		.first, .last {
+			font-size: 20px;
+		}
+
+		.science selects all elements with the classs science
+		p.science selects all p elements with the class science
 	
+	multiple classes
+		.book {
+			 font-family: Georgia, serif;
+		}
+
+		.domestic {
+			font-color: #0902CC;
+		}
+
+		.foreign {
+			font-color: #B097DD;
+		}
+
+		<h1 class="book domestic"> The Way of the Deep </h1>
+
+		<h1 class="book foreign"> A Night in the Sky </h1>
 	
-	
+		if you want to use multiple classes on a certain element
 	
 	
 	

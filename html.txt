@@ -115,8 +115,10 @@ CLASSES, IDS, DIVS
 		used to target specific headings, paragraphs, etc
 	
 	classes
-
+		<div class="science">
 	
+		like id, but able to be used by multiple diff elements
+		
 
 
 

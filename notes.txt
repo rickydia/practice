@@ -1,0 +1,461 @@
+Python notes
+
+COMMENTS
+	Comments are formed using the #
+	eg
+		# this would be a note
+
+	To have comments on multiple lines, start and end with """
+	eg
+		""" this 
+		is
+		all
+		commented
+		out """
+
+
+VARIABLES
+	No need to define type, does it by itself
+	
+	ints, bools, floats(basically a double, but less precise... floats can store 7 digits, doubles can store 15-16), strings are all native to python
+
+	Bool
+		bool_true = True
+		bool_false = False
+
+	Strings
+		can use either ' ' or " "
+		
+		in order to use an apostraphe, use the \ (' There\'s a snake in my boot')
+		
+		to access a specific letter in a string
+			fifth_letter = "PYTHON"[4]                        # this is the N
+						OR
+			foo = "PYTHON"
+			fifth_letter = foo[4]                             # this is the N
+						OR
+			foo = "PYTHON"
+			letters = foo[0:3]                                # this is PYTH
+
+		len()
+			gives length of string
+			foo = "poop head"
+			len(foo)                                          # this is 9
+
+		str()
+			turns whatever it is into a string
+			pi = 3.14
+			str(pi)                                           # this is "3.14"
+			
+		lower()
+			makes all the letters lower case
+			foo = "Poop Head"
+			foo.lower()                                       # this is "poop head"
+
+		upper()
+			makes all the letters upper case
+			foo = "Poop Head"
+			foo.upper()                                       # this is "POOP HEAD"
+
+
+MATHEMATICAL SIGNS
+	+ - * / %   all work normally
+	**          is used for exponents
+	//          is used for floor division
+
+
+PRINT
+	can only print out strings
+
+	print("PYTHON BITCH")
+				OR
+	foo = "PYTHON BITCH"
+	print(foo)
+
+	# Not a good way to do it
+	String Concatenation
+		print("Life " + "of " + "Brian")
+
+	Explicit String Conversion
+		print("The value of pi is around " + str(3.14))
+
+	String Formatting with %
+		string_1 = "Camelot"
+		string_2 = "place"
+
+		print("Let's not go to %s. 'Tis a silly %s." % (string_1, string_2))
+
+	% operator
+		%s - formatted as a string
+		%d - formatted as an integer
+		%f - formatted as a floating-point number
+
+		%3d
+			minumum number of spaces the number will take. If value provided takes fewer digits,
+			leading spaces are added
+		%-3d
+			same ^ but adds trailing spaces
+		%2.2f
+			for floating-point numbers, we can specify how many digits after decimal point
+
+	join
+		letters = ['a', 'b', 'c', 'd']
+		print(" ".join(letters))                              # prints a b c d
+		print("---".join(letters))                            # prints a---b---c---d
+
+
+DATETIME
+	from datetime import datetime
+	
+	datetime.now()
+		prints the current date and time
+			2017-04-29 23:45:14.317454
+		
+		if you don't want the whole date and time:
+			now = datetime.now()
+
+			current_year = now.year
+			current_month = now.month
+			current_day = now.day
+			print('%s/%s/%s' % (current_month, current_day, current_year)) # prints 4/29/17
+
+			current_hour = now.hour
+			current_minute = now.minute
+			current_second = now.second
+			print('%s:%s:%s' % (current_hour, current_minute, current_second)) # prints 23:45:14
+	
+
+USER INPUT
+	raw_input
+		asks user for input and returns it as a string
+		number = raw_input("Enter a number: ")
+		if int(number) == 0:
+			do this
+
+
+FUNCTIONS
+	def spam():                                               # how a function should be laid out
+		jhsdjhdhj
+		djdjsjh
+	
+	from random import randint
+	randint(low, high)                                        # prints a random int between the low and high
+
+
+CONTROL FLOW
+	input
+		answer = raw_input("Type left or right, then hit 'Enter'.").lower()
+	if
+		if answer == "left":
+			do this
+	elif
+		elif answer == "right":
+			do this
+	else
+		else:
+			do this
+
+COMPARITORS
+	==
+		equal to
+	!=
+		not equal to
+	<
+		less than
+	>
+		greater than
+	<=
+		less than or equal to
+	>=
+		greater than or equal to
+	not
+		gives opposite of the statement
+	and
+		checks if both are True
+	or
+		checks if one if True
+		
+		not is evaluated first
+		and is evaluated next
+		or is evaluated last
+
+	is
+		used to check if two items are the same object
+			money = 12
+			cash = money
+			money is cash								      # results in true
+
+
+INCREMENT OPERATORS
+	+=, -=, *=, /=, %=, **=, and //= work
+
+	++, -- DON'T WORK
+
+
+LISTS
+	0 indexed
+
+	if trying to get a portion, [inclusive, exclusive)
+		letters = ['a', 'b', 'c', 'd']
+		aAndB = letters[0:2]
+	
+	finding index
+		letters = ['a', 'b', 'c', 'd']
+		index = letters.index('b')                            # returns 1
+		
+	inserting
+		letters = ['a', 'b', 'c', 'd']
+		letters.insert(1, 'a.5')
+
+	appending
+		letters = ['a', 'b', 'c', 'd']
+		letters.append('e')                                   # adds e to the end of letters
+
+	sort
+		letters = ['c', 'b', 'a', 'd']
+		letters.sort()
+
+	removing items
+		letters = ['c', 'b', 'a', 'd']
+		letters.remove('a')
+
+	sum
+		numbers = [1, 2, 3, 4, 5]
+		total = sum(numbers)                                  # returns 15
+	
+	pop
+		numbers = [1, 2, 3, 4, 5]                             # removes the item from index 1 and
+		numbers.pop(1)                                        # returns it to you
+
+
+DICTIONARY/KEYS
+	d = {'key1' : 1, 'key2' : 2, 'key3' : 3}
+	print d['key1']                                           # prints 1
+
+	#Dictionaries can have multiple types of values
+	inventory = {
+	  'gold' : 500,
+	  'pouch' : ['flint', 'twine', 'gemstone'],
+	  'backpack' : ['xylophone','dagger', 'bedroll','bread loaf'] 
+	}	
+
+	#in order to access 'flint' in the 'pouch', do this
+	inventory['pouch'][0]
+
+	empty dictionaries
+		menu = {}
+	
+	deleting a dictionary
+		letters = ['a' : 1, 'b' : 2, 'c' : 3, 'd' : 4]
+		del letters['a']
+	
+	
+FOR LOOPS
+	for/else
+		executed after for only if not ended with break
+
+	general for loop
+		my_list = [1,9,3,8,5,7]
+		new_list = []
+
+		for number in my_list:
+			new_list.append(number * 2)
+
+	for loop with dictionary
+		webster = {
+			"Aardvark" : "A star of a popular cartoon show.",
+			"Baa" : "The sound a goat makes.", 
+			"Carpet": "Goes on the floor.", 
+			"Dab": "A small amount."
+		}
+		
+		for word in webster:
+			print(webster[word])	
+
+	for loop with limitation
+		a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+		for number in a:
+			if number%2 == 0:
+				print(number)
+
+	range
+		range(stop)
+		range(start, stop)
+		range(start, stop, step)
+
+		numbers = [0,1,2,3,4,5]
+		range(6)                                              # [0,1,2,3,4,5]
+		range(1,6)											  # [1,2,3,4,5]
+		range(1,6,3)                                          # [1,4]
+
+	enumerate
+		gives index with a for loop
+
+		choices = ['a', 'b', 'c', 'd']
+		for index, item in enumerate(choices):
+			print index, item                                 # prints 0 a ...
+	
+	zip
+		allows iteration through two things
+
+		list_a = [3, 9, 17, 15, 19]
+		list_b = [2, 4, 8, 10, 30, 40, 50, 60, 70, 80, 90]
+		for a, b in zip(list_a, list_b):
+
+
+WHILE LOOPS
+	while/else
+		the else block will execute anytime the loop condition is evaluated to False.
+		If the loop exits as the result of a break, the else will not be executed.
+
+	break
+		exits a loop
+	
+	continue
+		causes current iteration of a loop to end. flow goes back to top and reevaluates
+		flow condition
+
+
+FILE IO
+	opening files
+		f = open("test.dat", "w")
+
+		first thing in the open funtion is the file being opened, the second is the mode.
+
+		"w" - opening file for writing
+			f.write("blah bitch")
+
+		"r" - opening file for reading
+			f.open("test.dat", "r")
+			text = f.read()
+			print(text)                                       # prints out blah bitch
+
+			f.open("test.dat", "r")
+			text2 = f.read(3)                                 # only reads in 3 characters
+			print(text2)                                      # prints out bla
+
+	closing files
+		f.close()
+
+	text files
+		\nline
+			prints the stuff after it on a new line - kinda like \n
+
+		readline()
+			reads all the stuff on the line up until the next newline character
+
+			f = open("test.dat", "r")
+			firstLine = f.readline()
+
+		readlines()
+			reads the rest of the remaining lines as a list of strings
+
+	directories
+		f = open("/usr/share/dict/words", "r")
+	
+	pickle
+		import pickle
+			when writing things into a file, you have to write it as a string, so this allows
+			you to preserve the data type
+
+		writing with pickle
+			import pickle
+			f = open("test.pck", "w")
+			pickle.dump(12.3, f)
+			pickle.dump([1,2,3], f)
+			f.close()
+		
+		reading with pickle
+			import pickle
+			f = open("test.pck", "r")
+			x = pickle.load(f)                                # x is 12.3, with type 'float'
+			y = pickle.load(f)								  # y is [1,2,3], with type list
+	
+
+EXCEPTIONS
+	try/except blocks
+		should check if file opens with try/except blocks
+		
+		filename = input('Enter a file name: ')
+		try:
+			f = open(filename, "r")
+		except IOError:
+			print("no file named", filename)
+
+	raise
+		if program detects an error condition, can raise an exception
+		
+		takes in two arguements: exception type, and specific info over error
+
+		def inputNumber () :
+			x = input (’Pick a number: ’)
+			if x == 17 :
+				raise ValueError, ’17 is a bad number’
+			return x
+
+
+CLASSES
+	class Rectangle:
+		pass
+	
+	box = Rectangle()
+	box.width = 100.0                                         # width and height don't need to be 
+	box.height = 200.0                                          member variables???
+
+	copying
+		the copy module contains a function that can duplicate any object.
+
+		shallow copy
+			import copy
+			p1 = Point()
+			p1.x = 3
+			p1.y = 4
+			p2 = copy.copy(p1)
+			p1 == p2											  # false
+			samePoint(p1, p2)                                     # true
+		
+		deep copy
+			p2 = copy.deepcopy(p1)
+
+	class Time:
+		def printTime(time):
+			print str(time.hours) + ":" + \
+				str(time.minutes) + ":" + \
+				str(time.seconds)
+	
+	 currentTime.printTime()
+	
+	initializing
+		class Time:
+			def __init__(self, hours=0, minutes=0, seconds=0):
+				self.hours = hours
+				self.minutes = minutes
+				self.seconds = seconds
+		
+		currentTime = Time(9, 14, 30)
+
+	overloading
+		class Point:
+			def __init__(self, x=0, y=0):
+				self.x = x
+				self.y = y
+			def __str__(self):
+				return ’(’ + str(self.x) + ’, ’ + str(self.y) + ’)’
+			def __add__(self, other):
+				return Point(self.x + other.x, self.y + other.y)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

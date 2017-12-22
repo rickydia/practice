@@ -1,0 +1,211 @@
+CSS
+	can write css code within the html file using 
+		<style>
+		</style>
+
+	better
+		make a .css file with all the css code
+
+		<link>
+			links the css file with the html file
+
+			requires href - should be set to path of css file, type - should be set to "text/css", rel - should be set to "stylesheet"
+
+			<link
+				href = "https://www.codeacademy.com/stylesheets/style.css"
+				type = "text/css"
+				rel = "stylesheet">
+
+			href = "/style.css"
+				if .css file is in same directory
+	
+
+BASIC STRUCTURE AND SYNTAX
+	the css selectore essentially matches the html tag for that element but w/o the angled brackets
+
+	if wanting to select <h1>
+		h1 {
+		} 
+
+	if wanting to select all
+		* {
+			font-family: Arial;
+		}
+
+	css declarations
+		need two things within the selected html element
+			property - the property you'd like to style
+
+			value - the value of the property
+
+			h1, h2, p {
+				color: Green;
+			}
+		
+	comments
+		/* psknsdnkjsd */
+
+
+COLORS
+	foreground colors
+		color: Red;
+	
+	background colors
+		background-color: Blue;
+
+	147 named colors
+		google them if needed
+	
+	rgb colors
+		color: rgb(123, 20, 233);
+
+	rgba
+		the 'a' signifies opacity, between 0 and 1, inclusive
+		color: rgba(123, 20, 233, .5)
+
+	hex colors
+		color: #452F73
+	
+	hsl
+		color: hsl(182, 20%, 50%)
+
+	hsla
+		color: hsla(182, 20%, 50%, .4)
+
+	color declarations
+		many older browsers dont support rgba, hsl, hsla
+		so above rgba, hsl, hsla - add reduntent declaration in rgb or something of the sort so that it still has something to do
+		takes the last declaration, but if can't handle last, takes the second to last, etc
+
+	
+FONTS
+	font-family: "Times New Roman";
+
+	serif
+		fonts with little extra ass shit on the edges
+
+	sans-serif
+		w/o extra shit
+
+	h1 {
+		font-family: Garamond, Times, sarif;
+	}
+		uses Garamond first, then Times as a fallback, then if that doesn't work, then any sarif font
+
+	google fonts
+		add the fonts in head
+
+		<link
+			href = "https://fonts.googleapis.com/css?family=Raleway" 
+			type = "text/css" 
+			rel = "stylesheet">
+
+		h1 {
+			font-family: Raleway, Georgia, serif;
+		}
+
+	font size
+		font-size: 18px;
+
+		can use px, %, em
+			px- pixels on screen
+
+			em- change size of font relative to parent element's size of text
+
+			%- relative to default size of web browser
+
+	line height
+		changes the height of the line
+		
+		preffered to use ems
+
+		line-height: 1.5em;
+	
+	word spacing
+		word-spacing: .3em;
+
+		typical is about 0.25em
+
+	letter spacing
+		letter-spacing: .3em;
+
+	font weight
+		whether bold or normal text
+		sets entire block into bold
+
+		font-weight: bold;
+
+		100 - thin
+		200, 300, 400 - normal
+		500, 600, 700, 800, 900 - bold
+	
+	font style
+		italics or normal
+
+		font-style: italic;
+
+	text transformation
+		all appear to be upper or lower cased
+		
+		text-transform: uppercase;
+
+	text alignement
+		align text on left, right, or center
+
+		text-align: right;
+
+
+CLASSES, IDS, DIVS
+	id
+		#boom {
+			background-color: #56ABFF;
+		}
+	
+		used to target specific headings, paragraphs, etc
+	
+	classes
+		.science {	
+			background-color: #56ABFF;
+		}
+
+		p.science {
+			line-height: 1.3em;
+		}
+
+		.first, .last {
+			font-size: 20px;
+		}
+
+		.science selects all elements with the classs science
+		p.science selects all p elements with the class science
+	
+	multiple classes
+		.book {
+			 font-family: Georgia, serif;
+		}
+
+		.domestic {
+			font-color: #0902CC;
+		}
+
+		.foreign {
+			font-color: #B097DD;
+		}
+
+		<h1 class="book domestic"> The Way of the Deep </h1>
+
+		<h1 class="book foreign"> A Night in the Sky </h1>
+	
+		if you want to use multiple classes on a certain element
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+

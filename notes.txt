@@ -190,12 +190,16 @@ COMPARITORS
 		or is evaluated last
 
 	is
-		used to check if two items are the same object
+		used to check if two items refer to the same object
 			money = 12
 			cash = money
 			money is cash								      # results in true
+			a = [81, 2, 32]
+			b = [81, 2, 32]
+			a is b                                            # results in false
 	in
 		tests if one string is a substring of another
+		can also be used for lists
 	not in
 		opposite of ^
 
@@ -208,6 +212,8 @@ INCREMENT OPERATORS
 
 LISTS
 	0 indexed
+	like an array kinda
+	can have diff types within same list
 
 	if trying to get a portion, [inclusive, exclusive)
 		letters = ['a', 'b', 'c', 'd']
@@ -232,6 +238,11 @@ LISTS
 	removing items
 		letters = ['c', 'b', 'a', 'd']
 		letters.remove('a')
+	
+	deleting items (probably better than that^?)
+		a = ['a', 'b', 'c', 'd']
+		del a[1]
+		del a[0:2]
 
 	sum
 		numbers = [1, 2, 3, 4, 5]

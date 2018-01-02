@@ -68,10 +68,66 @@ VARIABLES
 			foo.upper()                                       # this is "POOP HEAD"
 
 
-MATHEMATICAL SIGNS
+ARITHMETIC OPERATORS
 	+ - * / %   all work normally
 	**          is used for exponents
 	//          is used for floor division
+
+
+INCREMENT OPERATORS
+	+=, -=, *=, /=, %=, **=, and //= work
+
+	++, -- DON'T WORK
+
+
+COMPARITORS
+	==
+		equal to
+	!=
+		not equal to
+	<
+		less than
+	>
+		greater than
+	<=
+		less than or equal to
+	>=
+		greater than or equal to
+	not
+		gives opposite of the statement
+	and
+		checks if both are True
+	or
+		checks if one if True
+		
+		not is evaluated first
+		and is evaluated next
+		or is evaluated last
+
+	is
+		used to check if two items refer to the same object
+			money = 12
+			cash = money
+			money is cash								      # results in true
+			a = [81, 2, 32]
+			b = [81, 2, 32]
+			a is b                                            # results in false
+	in
+		tests if one string is a substring of another
+		can also be used for lists
+	not in
+		opposite of ^
+
+
+PRECEDENCE OF OPERATORS
+	LEVEL		CATEGORY		OPERATORS
+	7(high)		exponent		**
+	6			multiplication	*,/,//,%
+	5			addition		+,-
+	4			relational		==,!=,<=,>=,<,>
+	3			logical			not
+	2			logical			and
+	1			logical			or
 
 
 PRINT
@@ -164,51 +220,6 @@ CONTROL FLOW
 	else
 		else:
 			do this
-
-COMPARITORS
-	==
-		equal to
-	!=
-		not equal to
-	<
-		less than
-	>
-		greater than
-	<=
-		less than or equal to
-	>=
-		greater than or equal to
-	not
-		gives opposite of the statement
-	and
-		checks if both are True
-	or
-		checks if one if True
-		
-		not is evaluated first
-		and is evaluated next
-		or is evaluated last
-
-	is
-		used to check if two items refer to the same object
-			money = 12
-			cash = money
-			money is cash								      # results in true
-			a = [81, 2, 32]
-			b = [81, 2, 32]
-			a is b                                            # results in false
-	in
-		tests if one string is a substring of another
-		can also be used for lists
-	not in
-		opposite of ^
-
-
-INCREMENT OPERATORS
-	+=, -=, *=, /=, %=, **=, and //= work
-
-	++, -- DON'T WORK
-
 
 LISTS
 	0 indexed
@@ -327,7 +338,6 @@ FOR LOOPS
 		list_a = [3, 9, 17, 15, 19]
 		list_b = [2, 4, 8, 10, 30, 40, 50, 60, 70, 80, 90]
 		for a, b in zip(list_a, list_b):
-
 
 
 WHILE LOOPS

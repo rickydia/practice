@@ -320,10 +320,15 @@ FOR LOOPS
 		range(start, stop)
 		range(start, stop, step)
 
-		numbers = [0,1,2,3,4,5]
+		numbers = [0,1,2,3,4,5]								  # [0,1,2,3,4,5]
 		range(6)                                              # [0,1,2,3,4,5]
 		range(1,6)											  # [1,2,3,4,5]
 		range(1,6,3)                                          # [1,4]
+
+		fruit = 'apple'
+		for index in range(len(fruit)):
+			print(fruit[index])
+		
 
 	enumerate
 		gives index with a for loop

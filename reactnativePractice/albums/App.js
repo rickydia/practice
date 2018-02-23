@@ -6,13 +6,17 @@
 
 // Import shit
 import React, { Component } from 'react';
-import { Text }	from 'react-native';
-import Header from './src/components/header';
-
+import { Text, View }	from 'react-native';
+import Header from './src/components/Header';
+import AlbumList from './src/components/AlbumList';
 // Component
 const App = () => {
 	return(
-		<Header headerText='Albums' />
+		<View>
+			{/* passing in prop 'headerText'*/ }
+			<Header headerText={'Albums'} />
+			<AlbumList />
+		</View>
 	);
 };
 

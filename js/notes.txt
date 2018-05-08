@@ -1,26 +1,46 @@
-CONSOLE
-	def: a tool that devs use to record the output of their JS programs
-	console.log() command used to print, or log, text to the console
-		console.log("Hello!");
+INTRO
+	Console
+		def: a tool that devs use to record the output of their JS programs
+		console.log() command used to print, or log, text to the console
+			console.log("Hello!");
+
+	Data types
+		strings
+			single or double quotes
+		numbers
+			ints or doubles with NO quotes
+		bools
+			true/false with NO quotes
+		null
+			represents the absence of value with no quotes
+
+	Math operators
+		add +
+		subtract -
+		multiply *
+		divide /
+
+	Properties
+		when you introduce a new piece of data into JS, the browser saves it as an instance of the data type
+		def: instance - an individual case, or object, of a data type
+		.length
+			every string instance has a length property
+			console.log('Hello'.length);
+
+		def: method - functions for the instance
+		.toUpperCase()
+			// prints HELLO
+			console.log('Hello'.toUpperCase());
+		.startsWith()
+			// prints true
+			console.log('hey'.startsWith('h'));
+
+		def: libraries - use libraries to use methods for instances that aren't necessarily declared
+
+		comments
+			// single line
+			/* multi line */
+
+
+VARIABLES
 	
-
-DATA TYPES
-	strings
-		single or double quotes
-	numbers
-		ints or doubles with NO quotes
-	bools
-		true/false with NO quotes
-	null
-		represents the absence of value with no quotes
-
-
-MATH OPERATORS
-	add +
-	subtract -
-	multiply *
-	divide /
-
-
-
-

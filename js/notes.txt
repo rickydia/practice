@@ -1,0 +1,26 @@
+CONSOLE
+	def: a tool that devs use to record the output of their JS programs
+	console.log() command used to print, or log, text to the console
+		console.log("Hello!");
+	
+
+DATA TYPES
+	strings
+		single or double quotes
+	numbers
+		ints or doubles with NO quotes
+	bools
+		true/false with NO quotes
+	null
+		represents the absence of value with no quotes
+
+
+MATH OPERATORS
+	add +
+	subtract -
+	multiply *
+	divide /
+
+
+
+

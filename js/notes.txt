@@ -1,6 +1,7 @@
 INTRO
 	Console
 		def: a tool that devs use to record the output of their JS programs
+			print?
 		console.log() command used to print, or log, text to the console
 			console.log("Hello!");
 
@@ -8,17 +9,24 @@ INTRO
 		strings
 			single or double quotes
 		numbers
-			ints or doubles with NO quotes
+			ints or doubles; with NO quotes
 		bools
-			true/false with NO quotes
+			true/false; with NO quotes
 		null
-			represents the absence of value with no quotes
+			represents the absence of value; with no quotes
+		undefined
+
 
 	Math operators
 		add +
 		subtract -
 		multiply *
 		divide /
+		+=
+		-=
+		*=
+		x++
+		x--
 
 	Properties
 		when you introduce a new piece of data into JS, the browser saves it as an instance of the data type
@@ -43,4 +51,99 @@ INTRO
 
 
 VARIABLES
+	two ways to declare variables
+		let
+			value can be reassigned
+		const
+			value cannot change
+
+	string interpolation
+		+ connects the strings being added together
+			let pet = 'dog';
+			console.log('I love my pet ' + pet);
+			// prints 'I love my pet dog'
+
+		${variable} allows you to insert variables directly into text
+			// needs to be wrapped in backticks `${variable}`
+			let pet = 'dog';
+			console.log(`I own a pet ${pet}`);
+			// prints 'I own a pet dog
+
+
+CONTROL FLOW
+	if/else statements
+		if( ){   }
+		else if( ){   }
+		else{   }
+
+	switch statements
+			very similar to c++
+				let groceryItem = 'papaya';
+				switch (groceryItem) {
+					case 'tomato':
+						console.log('Tomatoes are $0.49');
+						break;
+					case 'lime':
+						console.log('Limes are $1.49');
+						break;
+					case 'papaya':
+						console.log('Papayas are $1.29');
+						break;
+					default:
+						console.log('Invalid item');
+						break;
+				}
+
+	ternary operator
+		if(x){
+			true;
+		}
+		else{
+			false;
+		}
+
+		is the same as
+
+		x ? true : false;
+
+	true/false values
+		equates to false
+			false, 0, -0, "", '', null, undefined, NaN
+		equates to true
+			all variable that have been declafed and assigned
+
+	===
+		equal
+	!==
+		not equal
+	<
+		less than
+	>
+		greater than
+	<=
+		less than or equal to
+	>=
+		greater than or equal to
+	!
+		negation of truthiness
+	&&
+		and
+	||
+		or
+
+
+FUNCTIONS
+	const function = () => {
+		blah
+	};
+
+	const function
+		creates a variable with a given name
+	=
+		variable is set equal to a set of parentheses followed by an arrow token
+	() =>
+		indicates the variable stores a function
+	{   };
+		function body
+		
 

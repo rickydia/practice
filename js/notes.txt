@@ -133,17 +133,70 @@ CONTROL FLOW
 
 
 FUNCTIONS
-	const function = () => {
+	// this type of function layout is known as arrow functions
+	const function1 = () => {
 		blah
 	};
+	const function2 = (parameter1, parameter2) => {
+		return parameter1 + parameter2;
+	};
+	function1();
+	console.log(function2(input1, input2));
 
-	const function
-		creates a variable with a given name
-	=
-		variable is set equal to a set of parentheses followed by an arrow token
-	() =>
-		indicates the variable stores a function
-	{   };
-		function body
-		
+		const function
+			creates a variable with a given name
+		=
+			variable is set equal to a set of parentheses followed by an arrow token
+		() =>
+			indicates the variable stores a function
+		parameter1, parameter2
+			parameter inputted to function
+			there can be as many parameters as needed
+		{ };
+			function body
+		function1();
+			function call
+		input1, input2
+			the input for function
+		return
+			returns the thing next to it
+
+	Function Declaration
+		a function that is bound to an identifier or name
+		require the keyword 'function', a name, and a function body
+
+		function square (number) {
+			return number * number;
+		}
+		console.log(square(5));
+
+	Function Expression
+		similar to function declaration, except that identifier can be omitted
+		typically stored in a variable
+
+		const square = function (number) {
+			return number * number;
+		};
+
+	Arrow Functions
+		1. Functions that take a single parameter should not use parentheses. The code will still work, but it's better practice to omit the parentheses around single parameters. However, if a function takes zero or multiple parameters, parentheses are required.
+		2. A function composed of a sole single-line block is automatically returned. The contents of the block should immediately follow the arrow => and the return keyword can be removed. This is referred to as implicit return.
+		3. A function composed of a sole single-line block does not need brackets.
+
+		const multiplyByNineFifths = (celsius) => {
+			return celsius * (9/5);
+		};
+		const getFahrenheit = (celsius) => {
+			return multiplyByNineFifths(celsius) + 32;
+		};
+		console.log('The temperature is ' + getFahrenheit(15) + '°F');
+
+		can get refactored to:
+
+		const multiplyByNineFifths = celsius => celsius * (9/5);
+		const getFahrenheit = celsius => multiplyByNineFifths(celsius) + 32;
+		console.log('The temperature is ' + getFahrenheit(15) + '°F');
+
+
+
 

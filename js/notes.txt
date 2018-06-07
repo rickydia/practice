@@ -25,8 +25,8 @@ INTRO
 		+=
 		-=
 		*=
-		x++
-		x--
+		increment x++
+		decrement x--
 
 	Properties
 		when you introduce a new piece of data into JS, the browser saves it as an instance of the data type
@@ -198,5 +198,21 @@ FUNCTIONS
 		console.log('The temperature is ' + getFahrenheit(15) + '°F');
 
 
+SCOPE
+	Block Scope
+		if a variable is redefined within a lesser scope using let, it won't affect the value of that same variable outside of that scope
+		const colorOfSky = () => {
+			const dusk = true;
+			let color = 'blue';
+			if (dusk) {
+				let color = 'pink';
+				console.log(color); // pink
+			}
+			console.log(color); // blue
+		};
+		colorOfSky(); // blue
+		console.log(color); // ReferenceError
 
+
+ARRAYS
 

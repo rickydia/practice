@@ -215,4 +215,42 @@ SCOPE
 
 
 ARRAYS
+	arrays declared with const remain mutable
+	can change contents of an array, but cannot reassign the variable name to a new array or other data type
+
+	let letters = ['a', 'b', 'c'];
+	console.log(letters);   //prints ['a', 'b', 'c']
+	console.log(letters[1]);   // prints 'b'
+
+	.length
+		tells the length of the array
+		letters.length;
+
+	.push
+		pushes to the back
+		letters.push('d');
+
+	.pop()
+		removes item from back
+		letters.pop();
+
+	ton of other methods as well
+
+
+LOOPS
+	For Loops
+		just like c++
+		for(let i = 0; i < var.length; i++){
+			blah;
+		}
+
+	While Loops
+		while(condition){
+			blah;
+		}
+
+	break is a thing here too
+
+
+ITERATORS
 

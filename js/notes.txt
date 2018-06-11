@@ -253,4 +253,59 @@ LOOPS
 
 
 ITERATORS
+	.forEach()
+		executes the same code on each element of an array
+		must be called upon an array
+		any changes to the iterated array value won't be updated in the original array
+		the return value is undefined
+
+		let numbers = [1, 2, 3];
+		numbers.forEach(function(num){
+			console.log(num * num);
+		});
+
+		(function(num)){
+			creates a fucntion that takes a single parameter, num, and opens the block of code for that function. since forEach is an iterator method, every element in nunmbers will be passed to this fucntion as an argument in place of num
+
+		can also be written as:
+	
+		let numbers = [1, 2, 3];
+		numbers.forEach(num => console.log(num * num));
+
+	.map()
+		like forEach, but creates a new array with changed values
+		syntax almost identical to forEach, but creates a new array to it must be set equal to something
+
+		let numbers = [1, 2, 3];
+		let bigNumbers = numbers.map(function(num){
+			return num * num;
+		});
+
+		let bigNumbers = numbers.map
+			creates a new array in which the returned values of the .map() method will be saved and calls the .map() method on the array numbers
+		(function(num){
+			creates a function with a single parameter, num, that opens the block of code for that function
+		return num * num;
+			the code we wish to execute upon each element in the array. this will save each value from the numbers array squared to the bigNumbers array
+
+		can also be written as:
+
+		let numbers = [1, 2, 3];
+		let bigNumbers = numbers.map(num => num * num);
+
+	.filter()
+		creates a new array based off of certain elements frmot eh original array that evaluate to truthy based on conditions written in the block of the method
+
+		let numbers = [1, 2, 10];
+		let bigNumbers = numbers.filter(function(num){
+			return num > 5;
+		});
+
+		can also be rewritten as:
+
+		let numbers = [1, 2, 10];
+		let bigNumbers = numbers.filter(num => num > 5);
+
+
+OBJECTS
 

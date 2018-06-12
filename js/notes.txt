@@ -268,7 +268,7 @@ ITERATORS
 			creates a fucntion that takes a single parameter, num, and opens the block of code for that function. since forEach is an iterator method, every element in nunmbers will be passed to this fucntion as an argument in place of num
 
 		can also be written as:
-	
+
 		let numbers = [1, 2, 3];
 		numbers.forEach(num => console.log(num * num));
 
@@ -308,4 +308,75 @@ ITERATORS
 
 
 OBJECTS
+	def: containers that can store data and functions
+
+	let restaurant = {
+		_name: 'Italian Bistro',
+		_seatingCapacity: 120,
+		_hasDineInSpecial: true,
+		_entrees: ['Penne alla Bolognese', 'Chicken Cacciatore', 'Linguine Pesto'],
+		openRestaurant: () => {
+			if (this._hasDineInSpecial) {
+				return 'Unlock the door, post the special on the board, then flip the open sign.';
+			}
+			else {
+				return 'Unlock the door, then flip the open sign.';
+			}
+		},
+		closeRestaurant() {
+			return 'Lock the door, flip the open sign. We are closed.';
+		},
+		set seatingCapacity(newCapacity) {
+			if (typeof newCapacity === 'number') {
+				this._seatingCapacity = newCapacity;
+				console.log(`${newCapacity} is valid input.`);
+			}
+			else {
+				console.log(`Change ${newCapacity} to a number.`)
+			}
+		}
+		get seatingCapacity() {
+			console.log(`There are ${this._seatingCapacity} seats at Italian Bistro.`);
+			return this._seatingCapacity;
+		}
+	};
+	console.log(restaurant._entrees);
+	console.log(restaurant['_entrees']);
+	let food = '_entrees';
+	console.log(restaurant[food]);
+	console.log(restaurant.openRestaurant());
+	restaurant.appetizers = ['Fried Calamari', 'Fries'];
+	restaurant['desserts'] = ['Tiramisu', 'Cannoli'];
+	restaurant.seatingCapacity = 150;
+	const seats = restaurant.seatingCapacity;
+
+	_                                        indicates a property or value should not be modified directly by ohter code
+	{}                                       objects use curly braces
+	_name, _entrees, etc.                    are all keys
+	:                                        seperate keys from values with a colon
+	value                                    on right of colon
+	,                                        each key-value pair is seperated by comma
+	openRestaurant: () =>	                   key-function pair. adds the openRestaurant method to restaurant
+	closeRestaurant() {}                     same as above. creates a new method. this is best practice. only added in ES6
+	this._hasDineInSpecial                   allows the method to operate based off of data inside of the same object
+																						same as accessing restaurant.hasDineInSpecial
+																						needs the this. bc otherwise it would be out of scope
+	set seatingCapacity(newCapacity)         a setter method that sets a new value for the _seatingCapacity key
+	get seatingCapacity()                    a getter method that logs something then returns the value saved to _seatingCapacity.
+	restaurant._entrees                      uses dot notation to access the values of the keys
+	restaurant['_entrees']                   same as dot notation
+	restaurant[food]                         same as above, but uses a variable
+	.openRestaurant()                        calls the method
+	restaurant.appetizers                    adds the property appetizers to the restaurant object
+	restaurant['desserts']                   same as above, but uses bracket notation
+	.seatingCapacity = 150                   calls the setter method and sets _seatingCapacity to 150
+	const seats = restaurant.seatingCapacity calls the getter method
+
+	setter and getter methods
+		defined with set and get
+		used to set and get values within an object
+
+
+CLASSES
+
 

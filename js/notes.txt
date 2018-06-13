@@ -499,6 +499,37 @@ CLASSES
 
 
 BROWSER COMPATIBILITY AND TRANSPILATION
+	caniuse.com
+		a website that provides data on web browser compatibility for HTML, CSS, and JS features
+
+	babel
+		a js library that transpiles ES6 js to ES5
+		changes ES6 code to work with ES5 only serves
+
+		Process to transpile all ES6 code to ES5
+			1. place all ES6 js files into a dir called 'src'
+				i. from root dir, path to ES6 is './src/main.js'
+			2. run 'npm init'
+				i. this creates a package.json file in the root dir
+				ii. not required to fill in fields for the project's metadata, but should
+			3. install babel
+				i. 'npm install babel-cli -D'
+				ii. 'npm install babel-preset-env -D'
+				iii. creates a new folder, node_modules, that has all necessary files
+				iv. the -D flag instructs npm to add each package to a property called devDependencies in package.json
+					a. this is so that other devs can run your proj without installing each package seperately. instead they simply run 'npm install'.
+			4. in root dir, 'touch .babelrc'
+			5. inside .babelrc, you need to define the preset for your source JS files. the preset specifies the version of your inital JS files
+				i. to specify that we are transpiling code from an ES6+ source, add this in .babelrc:
+					{
+						"presets": ["env"]
+					}
+			6. inside of package.json, within the "scripts" property, add this below "tests":
+				i. "build": "babel src -d lib"
+			7. run 'npm run build'
+
+
+MODULES
 
 
 

@@ -435,7 +435,7 @@ CLASSES
 
 	Inheritance
 		still a thing. very similar to c++. child classes inherit everything (properties, methods, etc.) from parent class
-		
+
 		//parent class
 		class Animal {
 			constructor(name) {
@@ -458,6 +458,43 @@ CLASSES
 				super(name);
 				this._usesLitter = usesLitter;
 			}
+			get usesLitter() {
+				return this._usesLitter;
+			}
 		}
+		//second child class
+		class Dog extends Animal {
+			constructor(name) {
+				super(name);
+			}
+		}
+
+		extends				this keyword makes the methods of the animal class available inside the cat class
+										"a new class named Cat extend the Animal class"
+		constructor		called when you create a new Cat object, accepts two args: name and usesLitter
+		super					calls the contructor of the parent class. in this case, super(name) passes the name argument of the Cat class to the contructor of the Animal class.then the Animal constructor runs, it sets this._name = name; for the new Cat instances
+										MUST ALWAYS CALL THE super METHOD BEFORE YOU USE THE this KEYWORD -- if you don't js will throw a reference error
+		_usesLitter   a unique property to the Cat class
+		usesLitter()  a method specific to the Cat class
+
+	Static Methods
+		a static method is a method that isn't available in individual instances of the class, but can only be called directly from the class (SEE EXAMPLE BELOW)
+
+		class Animal {
+			constructor(name) {
+				this._name = name;
+				this._behavior = 0;
+			}
+			static generateName() {
+				const names = ['Angel', 'Spike', 'Buffy', 'Willow', 'Tara'];
+				const randomNumber = Math.floor(Math.random()*5);
+				return names[randomNumber];
+			}
+		}
+		//returns a name
+		console.log(Animal.generateName());
+		//TypeError
+		const tyson = new Animal('Tyson');
+		tyson.generateName();
 
 

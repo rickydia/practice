@@ -378,5 +378,86 @@ OBJECTS
 
 
 CLASSES
+	js is an object oriented language
+
+	Constructor
+		js calls the constructor() method every time it creates a new instance of a class
+
+		class Dog {
+			constructor(name) {
+				this.name = name;
+				this.behavior = 0;
+			}
+		}
+
+	Instance
+		an object that contains the property names and methods of a class, but with unique property values
+
+		class Dog {
+			constructor(name) {
+				this.name = name;
+				this.behavior = 0;
+			}
+		}
+		const halley = new Dog('Halley'); // Create new Dog instance
+		console.log(halley.name); // Log the name value saved to halley
+		// Output: 'Halley'
+
+	Method
+		same syntax as objects, but you don't include commas between methods
+
+		class Dog {
+			constructor(name) {
+				this._name = name;
+				this._behavior = 0;
+			}
+			get name() {
+				return this._name;
+			}
+			get behavior() {
+				return this._behavior;
+			}
+			incrementBehavior() {
+				this._behavior++;
+			}
+		}
+
+	Method Calls
+		syntax for calling methods and getters on an instance is the same as calling them on an object.
+		append the instance with a period, then the property or method name.
+		for methods, you must also add opening and closing parenthesis
+
+		let nikko = new Dog('Nikko'); // Create dog named Nikko
+		nikko.incrementBehavior(); // Add 1 to nikko instance's behavior
+		let bradford = new Dog('Bradford'); // Create dog name Bradford
+		console.log(nikko.behavior); // Logs 1 to the console
+		console.log(bradford.behavior); // Logs 0 to the console
+
+	Inheritance
+		still a thing. very similar to c++. child classes inherit everything (properties, methods, etc.) from parent class
+		
+		//parent class
+		class Animal {
+			constructor(name) {
+				this._name = name;
+				this._behavior = 0;
+			}
+			get name() {
+				return this._name;
+			}
+			get behavior() {
+				return this._behavior;
+			}
+			incrementBehavior() {
+				this._behavior++;
+			}
+		}
+		//child class
+		class Cat extends Animal {
+			constructor(name, usesLitter) {
+				super(name);
+				this._usesLitter = usesLitter;
+			}
+		}
 
 

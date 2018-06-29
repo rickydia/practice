@@ -1,0 +1,69 @@
+INTRO TO JSX
+	a syntax extension for JS. looks a lot like HTML
+		const h1 = <h1>Hello world</h1>;
+
+	needs to be compiled in order to translate any JSX into regular JS
+	the basic unit of JSX is an element
+	JSX elements are treated as JS expressions, meaning they can go anywhere JS expressions can go
+		const navBar = <nav>I am a nav bar</nav>;
+		const myTeam = {
+			center: <li>A</li,
+			forward: <li>B</li>,
+			defense: <li>C</li>
+		};
+
+	JSX elements can have attributes, just like HTML elements can
+	written as name="value"
+		<a href="http://www.example.com">Welcome to the Web</a>;
+		const title = <h1 id="title">Introduction to React.js: Part I</h1>;
+
+	JSX can be nested like in HTML
+	if a JSX expression takes up more than one line, then it must be wrapped in parentheses
+	a JSX expression must have exactly ONE outermost element
+		const example = (
+			<a href="https://www.example.com">
+				<h1>
+					Click me!
+				</h1>
+			</a>
+		);
+
+	DOM
+		Document Object Model
+		an abstraction of the structured text
+		elements of HTML become nodes in the DOM
+		'document' is an abstraction of the root node
+
+	ReactDOM.render(arg1, arg2)
+		ReactDOM is a JS library that contains several React-specific methods, all of which deal with the DOM in one way or another
+		.render() is the most common way to render JSX
+		'arg1' is the JSX expression being passed in to be rendered on the screen
+			can be literal JSX code or a variable that evaluated to JSX
+		'arg2' is where the first element is going to be appended.
+			basically looks on the DOM and finds whatever you're specifying and adds the JSX in arg1 there
+
+		ReactDOM.render(<h1>Render me!</h1>, document.getElementById('app'));
+
+		const toDoList = (
+			<ol>
+				<li>Learn React</li>
+				<li>Become a Developer</li>
+			</ol>
+		);
+		ReactDOM.render(toDoList, document.getElementById('app'));
+
+		ONLY UPDATES DOM ELEMENTS THAT HAVE CHANGED
+			uses the Virtual DOM to accomplish this
+				in React, for every DOM object, there's a corresponding virtual DOM object
+				a virtual DOM object is a representation of a DOM object
+				basically a copy that doesn't have the ability to print on the screen
+			accomplishes this by updating the virtual DOM with the newly rendered JSX elements, then diffing it with the previous virtual DOM to see which objects changed. then React goes into the real DOM and only updates the elements that changed
+
+			1. entire virtual DOM gets updated
+			2. virtual DOM diffs itself with previous virtual DOM and React figures out what changed
+			3. the changed objects get updated on the real DOM
+			4. changes on the real DOm cause the screen to change
+
+
+ADVANCED JSX
+

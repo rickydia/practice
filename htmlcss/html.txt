@@ -30,7 +30,7 @@ STRUCTURE
 		where the actual shit goes
 		<body>
 		</body>
-	
+
 
 VOCAB
 	< >
@@ -42,7 +42,7 @@ VOCAB
 	closing tag
 		the second HTML tag used to close an HTML element
 		have a / inside of them
-	
+
 
 COMMON HTML ELEMENTS
 	headings
@@ -50,10 +50,10 @@ COMMON HTML ELEMENTS
 		used in order of importance, h1 to h6
 
 		<h1>BREAKING NEWS</h1>
-	
+
 	paragraphs
 		<p>blah blah blah</p>
-	
+
 	unordered lists
 		bullet points
 
@@ -62,7 +62,7 @@ COMMON HTML ELEMENTS
 			<li>Lemons</li>
 			<li>Oranges</li>
 		</ul>
-	
+
 	ordered lists
 		numbered points
 
@@ -81,14 +81,14 @@ COMMON HTML ELEMENTS
 			<a
 			href="https://www.wikipedia.org/"
 			target="_blank">This is a link to Wikipedia</a>
-	
+
 	images
 		<img
 		src="https://www.example.com/picture.jpg" />
-	
+
 		alt
 			a discription of the image, typically for the visually impaired
-		
+
 			<img
 			scr="https://www.example.com/picture.jpg" alt="description" />
 
@@ -99,36 +99,228 @@ COMMON HTML ELEMENTS
 				<img src="www.example.com/picture.jpg"
 				alt="descriptioin" />
 			</a>
-	
+
 	whitespace
 		actual whitespace in code doesn't affect shit, you have to do:
 			<br />
 
 	comments
 		begin with <!-- and end with -->
-		
+
 
 CLASSES, IDS, DIVS
 	id
 		<div id="boom">
 
 		used to target specific headings, paragraphs, etc
-	
+
 	classes
 		<div class="science">
-	
+
 		like id, but able to be used by multiple diff elements
-		
 
 
 
 
+NEW CODECADEMY COURSE
+INTRO TO HTML
+	<body> </body>
+		only content inside the body can be displayed on the screen
+
+	whne an element is contained inside another element, it is considered the child of that element
+
+	<h1>, <h2>, <h3>, <h4>, <h5>, <h6>
+		there are six different headings
+
+	<div> </div>
+		short for "division"
+		container that divides the page into sections
+
+	id
+		used to specify different content and is really helpful when you use an element more than once
+
+	<p> </p>
+		contains a block of plain text
+
+	<span> </span>
+		contains short pieces of text or other HTML
+		used to separate small pieces of content that are on the same line as other content
+
+		<div>
+			<h1>Technology</h1>
+		</div>
+		<div>
+			<p><span>Self-driving cars</span> are anticipated to replace up to 2 million jobs over the next two decades.</p>
+		</div>
+
+	<em> </em>
+		emphasizes text
+		typically makes it italic
+
+	<strong> </strong>
+		highlights important text
+		typically makes it bold
+
+	<br>
+		line break
+		only has starting tag
+
+	<ul> </ul>
+		unordered list
+		outlines individual list items with a bullet point
+
+		<li> </li>
+			used to describe an item in a list
+
+		<ul>
+			<li>Limes</li>
+			<li>Tortillas</li>
+			<li>Chicken</li>
+		</ul>
+
+	<ol> </ol>
+		ordered list
+		each item list is numbered
+		individual list items are still added by using the <li> </li> tag
+
+	<img src="" alt="" />
+		allows you to add an image to a web page
+		src is where the picture is located, either local or url
+		alt is a description of the image, used to make image accessible to screen readers
+
+	<video src="" width="320" height="240" controls> Video not supported </video>
+		src is the location of video
+		width/height is measurement of the video
+		controls adds basic video controls to video
 
 
+DOCUMENT STANDARDS
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<!-- metadata of the file -->
+			<title>The title that's gonna be placed in the title bar/tab bar</title>
+		</head>
+		<body>
+			<!-- anything that is going to be printed on screen must be in here -->
+		</body>
+	</html>
+
+	<a href="link" target="location">Text goes here</a>
+		anchor element
+		used to link to a web page
+		href is the location where it links to
+		target="_blank" means it'll open the link in a new tab
+		target="#top"
+			href will jump to wherever the id="top" was located
+			<ol>
+				<li><a href="#top">Top</a></li>
+				<li><a href="#bottom">Bottom</a></li>
+			</ol>
+
+		can wrap almost any element to make it a link
+			<a href="https://en.wikipedia.org/wiki/Opuntia" target="_blank">
+				<img src="#" alt="A red prickly pear fruit"/>
+			</a>
 
 
+TABLES
+	<table>
+		<tr> <!-- table row -->
+			<th></th> <!-- table heading -->
+			<th scope="col">Saturday</th> <!-- table heading column -->
+			<th scope="col">Sunday</th>
+		</tr>
+		<tr>
+			<th scope="row">Temperature</th> <!-- table heading row -->
+			<td> <!-- table data --> </td>
+			<td></td>
+		</tr>
+		<tr>
+			<th scope="row">Humidity</th>
+			<td></td>
+			<td></td>
+		</tr>
+	</table
 
+	colspan
+		used to indicate that the piece of data spans over multiple columns
+		<table>
+			<tr>
+				<th>Monday</th>
+				<th>Tuesday</th>
+				<th>Wednesday</th>
+			</tr>
+			<tr>
+				<td colspan="2">Out of Town</td>
+				<td>Back in Town</td>
+			</tr>
+		</table>
 
+	rowspan
+		used to indicate that the piece of data spans over multiple rows
+		<table>
+			<tr> <!-- Row 1 -->
+				<th></th>
+				<th>Saturday</th>
+				<th>Sunday</th>
+			</tr>
+			<tr> <!-- Row 2 -->
+				<th>Morning</th>
+				<td rowspan="2">Work</td>
+				<td rowspan="3">Relax</td>
+			</tr>
+			<tr> <!-- Row 3 -->
+				<th>Afternoon</th>
+			</tr>
+			<tr> <!-- Row 4 -->
+				<th>Evening</th>
+				<td>Dinner</td>
+			</tr>
+		</table>
+
+	table body
+		<tbody> </tbody>
+		used when tables become very long
+		sections off the table data so that it's easier to manage
+
+	table head
+		<thead> </thead>
+		used to section off the headings
+
+	table footer
+		<tfoot> </tfoot>
+		the footer usually contains the totals of the data in the table
+		used to contain sums, differences, and other data results
+
+	<table>
+		<thead> <!-- table head -->
+			<tr>
+				<th>Quarter</th>
+				<th>Revenue</th>
+				<th>Costs</th>
+			</tr>
+		</thead>
+		<tbody> <!-- table body -->
+			<tr>
+				<th>Q1</th>
+				<td>$10M</td>
+				<td>$7.5M</td>
+			</tr>
+			<tr>
+				<th>Q2</th>
+				<td>$12M</td>
+				<td>$5M</td>
+			</tr>
+		</tbody>
+		<tfoot> <!-- table footer -->
+			<tr>
+				<th>Total</th>
+				<td>$22M</td>
+				<td>$12.5M</td>
+			</tr>
+		</tfoot>
+	</table>
 
 
 

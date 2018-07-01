@@ -1,5 +1,5 @@
 CSS
-	can write css code within the html file using 
+	can write css code within the html file using
 		<style>
 		</style>
 
@@ -18,14 +18,14 @@ CSS
 
 			href = "/style.css"
 				if .css file is in same directory
-	
+
 
 BASIC STRUCTURE AND SYNTAX
 	the css selectore essentially matches the html tag for that element but w/o the angled brackets
 
 	if wanting to select <h1>
 		h1 {
-		} 
+		}
 
 	if wanting to select all
 		* {
@@ -41,7 +41,7 @@ BASIC STRUCTURE AND SYNTAX
 			h1, h2, p {
 				color: Green;
 			}
-		
+
 	comments
 		/* psknsdnkjsd */
 
@@ -49,13 +49,13 @@ BASIC STRUCTURE AND SYNTAX
 COLORS
 	foreground colors
 		color: Red;
-	
+
 	background colors
 		background-color: Blue;
 
 	147 named colors
 		google them if needed
-	
+
 	rgb colors
 		color: rgb(123, 20, 233);
 
@@ -65,7 +65,7 @@ COLORS
 
 	hex colors
 		color: #452F73
-	
+
 	hsl
 		color: hsl(182, 20%, 50%)
 
@@ -77,7 +77,7 @@ COLORS
 		so above rgba, hsl, hsla - add reduntent declaration in rgb or something of the sort so that it still has something to do
 		takes the last declaration, but if can't handle last, takes the second to last, etc
 
-	
+
 FONTS
 	font-family: "Times New Roman";
 
@@ -96,8 +96,8 @@ FONTS
 		add the fonts in head
 
 		<link
-			href = "https://fonts.googleapis.com/css?family=Raleway" 
-			type = "text/css" 
+			href = "https://fonts.googleapis.com/css?family=Raleway"
+			type = "text/css"
 			rel = "stylesheet">
 
 		h1 {
@@ -116,11 +116,11 @@ FONTS
 
 	line height
 		changes the height of the line
-		
+
 		preffered to use ems
 
 		line-height: 1.5em;
-	
+
 	word spacing
 		word-spacing: .3em;
 
@@ -138,7 +138,7 @@ FONTS
 		100 - thin
 		200, 300, 400 - normal
 		500, 600, 700, 800, 900 - bold
-	
+
 	font style
 		italics or normal
 
@@ -146,7 +146,7 @@ FONTS
 
 	text transformation
 		all appear to be upper or lower cased
-		
+
 		text-transform: uppercase;
 
 	text alignement
@@ -160,11 +160,11 @@ CLASSES, IDS, DIVS
 		#boom {
 			background-color: #56ABFF;
 		}
-	
+
 		used to target specific headings, paragraphs, etc
-	
+
 	classes
-		.science {	
+		.science {
 			background-color: #56ABFF;
 		}
 
@@ -178,10 +178,10 @@ CLASSES, IDS, DIVS
 
 		.science selects all elements with the classs science
 		p.science selects all p elements with the class science
-	
+
 	multiple classes
 		.book {
-			 font-family: Georgia, serif;
+			font-family: Georgia, serif;
 		}
 
 		.domestic {
@@ -195,17 +195,12 @@ CLASSES, IDS, DIVS
 		<h1 class="book domestic"> The Way of the Deep </h1>
 
 		<h1 class="book foreign"> A Night in the Sky </h1>
-	
+
 		if you want to use multiple classes on a certain element
-	
-	
-	
-	
-	
-	
 
 
-
+NEW CSS COURSE
+CSS SETUP AND SELECTORS
 
 
 

@@ -201,6 +201,125 @@ CLASSES, IDS, DIVS
 
 NEW CSS COURSE
 CSS SETUP AND SELECTORS
+	inline styles
+		css within html file, specifically wihtin an element
+		<p style="color:red; font-size:20px;">Text</p>
 
+	<style> </style>
+		allows you to style html elements from within html file
+		must be within <head> </head>
+		<head>
+			<style>
+				p {
+					color:red;
+					font-size:20px;
+				}
+			</style>
+		</head>
+
+	.css file
+		best location to write styling for elements
+		must be linked into HTML file
+
+	<link href="./css/style.css" type="text/css" rel="stylesheet" />
+		must be placed within head of HTML file
+		href is the address of the css file
+		type is the type of file you're linking to
+		rel is the relationship between the HTML and css files
+
+	tag name
+		p {
+			font-family: Arial;
+		}
+
+	class name
+		'class' is an attribute that can be added to html elements so that all elements of that class are stlyed the same
+		<!-- file.html -->
+		<p class="brand">Sole Shoe Company</p>
+
+		/* style.css */
+		.brand {
+			/* stuff */
+		}
+
+	multiple classes
+		allows an html element to be part of multiple classes
+		<!-- file.html -->
+		<p class="green bold">Text</p>
+
+		/* style.css */
+		.green {
+			color: green;
+		}
+		.bold {
+			font-weight: bold;
+		}
+
+	id name
+		allows a html element to be styled uniquely regardless of what classes are applied to the element
+		<!-- file.html -->
+		<p id="large-title">Text</p>
+
+		/* style.css */
+		#large-title {
+			/* stuff */
+		}
+
+	class vs id
+		classes meant to be reused over many elements
+		id meant to style only one element
+
+	specificity
+		!important > id > class > tag
+		meaning it'll follow the styling for id first, then class, then tag
+
+	chaining electors
+		done in order to require an html element to have two or more css selectors at the same time
+		p.special {
+
+		}
+
+	nested elements
+		<!-- file.html -->
+		<ul class='main-list'>
+			<li> ... </li>
+		</ul>
+
+		/* style.css */
+		.main-list li {
+
+		}
+
+	important
+		!important is applied to specific attributes instead of full rules
+		it overrides ANY style no matter how specific it is
+
+		p {
+			color: blue !important;
+		}
+
+	multiple selectors
+		allows diff elements/class/ids to have same code
+		SEPERATED BY COMMA
+
+		h1, .menu {
+			font-family: Georgia;
+		}
+
+
+VISUAL RULES
+	font-family
+		used to change font
+		font must be installed on a user's computer
+		default font is Times New Roman
+		2-3 fonts max
+		if font-family is more than one word, should be enclosed in quotes
+
+		h1 {
+			font-family: "Courier New";
+		}
+
+	font-size
+		used to change font size
 
 

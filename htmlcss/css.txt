@@ -309,49 +309,89 @@ CSS SETUP AND SELECTORS
 
 VISUAL RULES
 	font-family
-		font-family: "Courier New";
 		used to change font
 		font must be installed on a user's computer
 		default font is Times New Roman
 		2-3 fonts max
 		if font-family is more than one word, should be enclosed in quotes
+		p {
+			font-family: "Courier New";
+		}
 
 	font-size
-		font-size: 18px
 		used to change font size
+		p {
+			font-size: 18px
+		}
 
 	font-weight
 		font-weight: bold;
 		how bold or thin text appears
 		has value of bold and normal
+		p {
+			font-weight: bold;
+		}
 
 	text align
 		text-align: right;
 		left, center, or right
+		p {
+			text-align: right;
+		}
 
 	color
 		foreground color
-			color: red;
 			the color that an element appears in
+			p {
+				color: red;
+			}
 
 		background color
-			background-color: blue;
 			the color behind the element
+			p {
+				background-color: blue;
+			}
 
 	opacity
-		opacity: 0.5;
 		the measure of the transparancy of an element
 		0 to 1 inclusive
 			0 is transparant
 			1 is fully visible
+		p {
+			opacity: 0.5;
+		}
 
 	background image
-		background-image: url("https://www.example.com/image.jpg");
-		background-image: url("images/image.jpg");
 		makes the background of an element into an image
+		p {
+			background-image: url("https://www.example.com/image.jpg");
+			background-image: url("images/image.jpg");
+		}
 
 
 THE BOX MODEL
+	box model
+		margin
+			border
+				padding
+					content - height - width
 
+	height and width
+		px
+			pixels allow you to set the exact size of an element's box
 
+	border
+		a line that surrounds an element
+		width
+			the thinkness of the border
+			can be set in pixels or with 'thin', 'medium', or 'thick'
+		style
+			the design of the border
+		color
+			color of the border
+		default is "medium none color"
+			"color" is the current color of the element
+		p{
+			border: 3px solid coral;
+		}
 

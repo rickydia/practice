@@ -332,7 +332,7 @@ VISUAL RULES
 			font-weight: bold;
 		}
 
-	text align
+	text-align
 		text-align: right;
 		left, center, or right
 		p {
@@ -346,7 +346,7 @@ VISUAL RULES
 				color: red;
 			}
 
-		background color
+		background-color
 			the color behind the element
 			p {
 				background-color: blue;
@@ -361,7 +361,7 @@ VISUAL RULES
 			opacity: 0.5;
 		}
 
-	background image
+	background-image
 		makes the background of an element into an image
 		p {
 			background-image: url("https://www.example.com/image.jpg");
@@ -394,4 +394,101 @@ THE BOX MODEL
 		p{
 			border: 3px solid coral;
 		}
+
+	border-radius
+		changes the shape of the outlining radius
+		can create a perfect circle by either setting radius equal to height of the box, or to 100%
+		div.container {
+			border-radius: 100%
+			border-radius: 5px;
+		}
+
+	padding
+		the space between the contents of a box and the borders of a box
+		often used to expand the background color and make content look lessed cramped
+		p.content-header {
+			padding: 0px;
+			padding: 6px 11px 4px 9px;
+			padding-top: 6px;
+			padding-right: 11px;
+			padding-bottom: 4px;
+			padding-left: 9px;
+			/* sets top and bottome to 5 and left and right to 10 */
+			padding: 5px 10px;
+		}
+
+	margin
+		refers to the space directly outside of the box
+		p.content-header {
+			margin: 0px;
+			margin: 6px 11px 4px 9px;
+			margin-top: 6px;
+			margin-right: 11px;
+			margin-bottom: 4px;
+			margin-left: 9px;
+			/* sets top and bottom to 5 and left and right to 10 */
+			margin: 5px 10px;
+		}
+
+	auto
+		allows to automatically center margins
+		must have declared a width
+		div.headline {
+			width: 400px;
+			margin: 0 auto;
+		}
+
+	margin collapse
+		horizontal margins, like padding, are added together between neighboring elements
+		verticle margins aren't. the larger of the top/bottom margins takes presidece and only that one is used
+
+	min and max height/width
+		min-width/height
+			the property ensures a minimum width/height of an element's box
+		max-width/height
+			the property ensures a maximum width/height of an element's box
+		p {
+			min-width: 300px;
+			max-width: 600px;
+			min-height: 150px;
+			max-height: 300px;
+		}
+
+	overflow
+		controls what happens to content that spills outside its box
+		can be set to:
+			hidden
+				any content that overflows will be hidden from view
+			scroll
+				a scrollbar will be added to the element's box so that the rest of the content can be viewed by scrolling
+			visible
+				the overflow content will be displayed outside of the containing element
+		p {
+			overflow: scroll;
+		}
+
+	resetting defaults
+		all major web browsers have a default stylesheet they use in the absense of an external stylesheet known as user agen stylesheets
+		often have default css rules that set default values for padding and margin
+		can reset all defaults by:
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+	visibility
+		elements can be hidden from view
+		can be set to hidden(hides an element) or visible(displays an element)
+		.future {
+			visibility: hidden;
+		}
+
+	visibility: hidden vs display: none
+		display: none will be completely removed from the web page
+		visibility: hidden will not be visible on the web page, but the space reserved for it will
+
+
+CHANGING THE BOX MODEL
+
+
 

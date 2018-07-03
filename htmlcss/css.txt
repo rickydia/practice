@@ -489,6 +489,36 @@ THE BOX MODEL
 
 
 CHANGING THE BOX MODEL
+	box-sizing
+		controls the type of box model the browser should use when interpreting a web page
+		default is 'content-box'
+			affected by border thickness and padding
+			* {
+				box-sizing: content-box;
+			}
+			h1 {
+				border: 1px solid black;
+				height: 200px;
+				width: 300px;
+				padding 10px;
+			}
+			/* total size of box is 322x222 */
+		border-box
+			height and width will remain fixed
+			border thickness and padding will be included inside of the box, which means the overall dimensions of the box do not change
+			* {
+				box-sizing: border-box;
+			}
+			h1 {
+				border: 1px solid black;
+				height: 200px;
+				width: 300px;
+				padding 10px;
+			}
+			/* total size of box is 300x200 */
+
+
+CSS DISPLAY AND POSITIONING
 
 
 

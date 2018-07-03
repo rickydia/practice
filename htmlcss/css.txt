@@ -519,6 +519,85 @@ CHANGING THE BOX MODEL
 
 
 CSS DISPLAY AND POSITIONING
+	position
+		default position is on left side of browser
+		can be:
+			static
+				the default value
+			relative
+				allows you to position an element relative to its default static position on the web page using top, bottom, left, right
+				top
+					moves the element down
+				bottom
+					moves the element up
+				left
+					moves the element right
+				right
+					moves the element left
+				.box-bottom {
+					position: relative;
+					top: 20px;
+					left: 50px;
+				}
+			absolute
+				all other elements will ignore the element and act like it's not present on the page
+				will be positioned relative to its closest positioned parent element
+				doesn't move with screen if scrolled
+				.box-bottom {
+					position: absolute;
+					top: 20px;
+					left: 50px;
+				}
+			fixed
+				fix an element to a specific position on the page, regardless of user scrolling
+
+	z-index
+		controls what elements are in front or behind others "depth"
+		accepts integer values
+		doesn't work with static elements
+
+	display
+		inline
+			only take up the amount of space necessary to display their content and not requiring a new line after each element
+			cannot be altered in size with height or width properties
+			h1 {
+				display: inline;
+			}
+		block
+			fill the entire width of the page, but their width property can also be set
+			height is only the necessary unless otherwise changed
+			strong {
+				display: block;
+			}
+		inline-block
+			can appear next to each other and we can specify their dimensions using the width and height properties
+			.rectangle {
+				display: inline-block;
+				width: 200px;
+				height: 300px;
+			}
+
+	float
+		used to move elements as far left or right as possible
+		.box-bottom {
+			float: left;
+			float: right;
+		}
+
+	clear
+		specifies how elements should behave when they bump into each other on the page
+		can be:
+			left
+				the left side of the element will not touch any other element eithin the same containing element
+			right
+				the right side of the element will not touch any other element within the same containing element
+			both
+				neither side of the element will touch any other element within the same containing element
+			none
+				the element can touch either side
+
+
+COLORS
 
 
 

@@ -275,20 +275,20 @@ CSS SETUP AND SELECTORS
 
 	chaining electors
 		done in order to require an html element to have two or more css selectors at the same time
-		p.special {
-
+		p.yellow {
+			background: yellow;
 		}
+		makes any (below) have a yellow background
+		<p class="yellow">
 
 	nested elements
-		<!-- file.html -->
+		.main-list li {
+			background: yellow;
+		}
+		makes any <li> element which is a descendant of a class of main-list yellow, such as:
 		<ul class='main-list'>
 			<li> ... </li>
 		</ul>
-
-		/* style.css */
-		.main-list li {
-
-		}
 
 	important
 		!important is applied to specific attributes instead of full rules
@@ -598,6 +598,156 @@ CSS DISPLAY AND POSITIONING
 
 
 COLORS
+	color
+		adjusts the foreground color
+
+	background-color
+		adjusts the background color
+
+	rgb
+		rgb(23, 45, 23)
+		each can have a number between 0 and 255 inclusive
+
+	hsl
+		hsl(120, 60%, 70%)
+		hue
+			an angle on the color wheel
+			red 0/360
+			green 120
+			blue 240
+		saturation
+			intensity/purity of the color
+			0% is center of circle, meaning white/gray
+			100% is pure color
+		lightness
+			how light/dark color is
+			default is about 50%
+
+	hsla
+		opacity is the amount of transparancy
+		alpha is a decimal number from 0 to 1 that signifies the opacity
+			0 is transparent
+			1 is opaque
+		hsla(34, 100%, 50%, .1)
+
+	rgba
+		same thing as hsla, but using rgb instead of hsl
+		rgba(234, 45, 67, .89)
+
+	transparant
+		a named color to make something transparent
+
+
+TYPEOGRAPHY
+	font-family
+		allows you to change the typeface of text on your web page
+		h1 {
+			font-family: Garamond;
+			font-family: "Courier New";
+		}
+
+	font-weight
+		allows you to make something bold
+		can be set to normal or bold
+		can also be set to 100 to 900, incrementing by 100
+			400 is default of most text
+			700 is usually bold
+			300 is typically light
+		however, not all fonts can be assigned a numeric font-weight
+		span {
+			font-weight: normal;
+			font-weight: bold;
+		}
+
+	font-style
+		allows you to make something italicized
+		can be set to normal ot italic
+		span {
+			font-style: italic;
+		}
+
+	word-spacing
+		allows you to change the spacing between words
+		typical is about .25ems
+		h1 {
+			word-spacing: .3em;
+		}
+
+	letter-spacing
+		allows you to change the spacing between letters
+		h1 {
+			letter-spacing: 0.3em;
+		}
+
+	text-transform
+		allows you to make all uppercase or all lowercase
+		h1 {
+			text-transform: uppercase;
+		}
+
+	text-align
+		allows you to move text
+		can be set to:
+			left
+				aligns text to the left hand side of the browser
+			right
+				aligns text to the right hand side of the browser
+			center
+				centers text
+
+	line-height
+		allows you to change the line height
+		can be:
+			a unitless number, like 1.2
+				an absolute number that will compute the line height as a ratio of the font size
+			a number specified by unit, like 12px
+				can be px, %, em, rem
+		p {
+			line-height: 1.4;
+		}
+
+	serif fonts
+		have extra details on the ends of each letter
+		ie times new roman
+
+	sans-serif
+		don't have the extra details on the ends of each letter
+		ie arial
+
+	fallback fonts
+		allos you to specify which fonts to use in case the main font isn't on the host computer
+		h1 {
+			font-familt: "Garamond", "Times", serif;
+		}
+		Garamond is first choice
+		Times is second
+		serif is last
+			means that computer will use any serif font pre-installed
+
+	linking fonts
+		google has an enormous variety of free fonts you can use at fonts.google.com
+		must link the font to the document
+		must be linked in the <head> section of the HTML doc
+		<head>
+			<link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet">
+		</head>
+
+	@font-face
+		allows you to import fonts directly into stylesheets
+		can be done by:
+			1. enter font's link into browser
+			2. copy over the rules labeled /* latin */ to the top of style.css
+
+		can also use local fonts
+			@font-face {
+				font-family: "Roboto";
+				src: url(fonts/Roboto.woff2) format('woff2'),
+								url(fonts/Roboto.woff) format('woff'),
+								url(fonts/Roboto.tff) format('truetype');
+			}
+
+
+GRID
 
 
 

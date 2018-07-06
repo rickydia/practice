@@ -855,6 +855,134 @@ GRID
 
 
 ADVANCED CSS GRID
+	grid-template-areas
+		allows you to name sections of your web page to use as values
+	use grid-template-areas as a pseudo grid with keys that you can use in other rule sets as the value to grid-area
+		basically, 'head' takes up the entire first row, and since the header element's rule set sets grid-area to 'head', it'll know to use header for the first row of the grid
+		.container {
+			display: grid;
+			max-width: 900px;
+			position: relative;
+			margin: auto;
+			grid-template-areas: "head head"
+													"nav nav"
+													"info services"
+													"footer footer";
+			grid-template-rows: 300px 120px 800px 120px;
+			grid-template-columns: 1fr 3fr;
+		}
+		header {
+			grid-area: head;
+		}
+		nav {
+			grid-area: nav;
+		}
+		.info {
+			grid-area: info;
+		}
+			.services {
+			grid-area: services;
+		}
+		footer {
+			grid-area: footer;
+		}
 
+	overlapping elements
+		easily done using grid-area
+		in ex below, info covers all eight rows and first three columns
+		services covers all three rows and last three columns
+		img is in rows 2-4 and columns 3-4, and is over info and services bc of z-index
+		.container {
+			display: grid;
+			grid-template: repeat(8, 200px) / repeat(6, 100px);
+		}
+		.info {
+			grid-area: 1 / 1 / 9 / 4;
+		}
+		.services {
+			grid-area: 1 / 4 / 9 / 7;
+		}
+		img {
+			grid-area: 2 / 3 / 5 / 5;
+			z-index: 5;
+		}
+
+	justify-items
+		positions grid items horizontally
+		start
+			aligns items to the left side of the grid
+		end
+			aligns items to the right side of the grid
+		center
+			aligns items to the center of the grid
+		stretch
+			stretched all items to fill the grid area
+
+	justify-content
+		positions the entire grid horizontally
+		start
+			aligns grid to the left side of the grid container
+		end
+			aligns grid to the right side of the container
+		center
+			centers the grid horizontally in the grid container
+		stretch
+			stretches the grid items to increase the size of the grid to expand horizontally across the container
+		space-around
+			includes an equal amount of space on each side of a grid element, resulting in doublt the amount of space between elements as there is before the first and after the last
+		space-between
+			includes an equal amount of space between grid items and no space at either end
+		space-evenly
+			places an even amount of space between grid items and at either end
+
+	align-items
+		positions grid items vertically
+		start
+			aligns grid items to the top side of the grid area
+		end
+			aligns grid items to the bottom side of the grid area
+		center
+			aligns grid items to the center of the grid area
+		stretch
+			stretches all items to fill the grid area
+
+	align-content
+		positions the rows vertically
+		start
+			aligns the grid to the top of the grid container
+		end
+			aligns the grid to the bottom of the grid container
+		center
+			aligns the grid vertically in the grid container
+		stretch
+			stretched the grid items to increase the size of the grid to expand vertically across the container
+		space-around
+			includes an equal amount of space on each side of a grid elemnt, resulting in double the amount of space between elements than before the first item and after the last
+		space-between
+			includes an equal amount of space between grid items and no space at either end
+		space-evenly
+			spaces an even amount of space between grid items and at either end
+
+	justify-self and align-self
+		specifies how an individual item should be positioned
+		overrifes -items
+		same properties as -items
+
+	grid-auto-rows and grid-auto-columns
+		grid-auto-rows specifies the height of implicitly added grid rows
+		grid-auto-columns specifes the width of implicitly added grid columns
+		accept same values as grid-template-rows and grid-template-columns
+			px, %, fr, repeat()
+
+	grid-auto-flow
+		specifies whether new elements should be added to rows or columns
+		row
+			specifeis the new elements should fill rows from left to right and create new rows when there are too many elements
+		column
+			specifies the new elements should fill columns from top to bottom and create new columns when there are too many elements
+		dense
+			invvokes an alg that tries to fill holes earlier in the grid layout if smaller elements are added
+		row and column can be paired with dense
+			auto-flow: row dense;
 
 

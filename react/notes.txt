@@ -1,4 +1,4 @@
-INTRO TO JSX
+jINTRO TO JSX
 	a syntax extension for JS. looks a lot like HTML
 		const h1 = <h1>Hello world</h1>;
 
@@ -66,4 +66,25 @@ INTRO TO JSX
 
 
 ADVANCED JSX
+	class vs className
+		in HTML
+			<div class="big">TEXT</div>
+		in JSX
+			<div className="big">TEXT</div>
+		this is bc in js, class is a reserved word
+
+	self-closing tags
+		all self-closing tags must end with a slash
+		<br />
+
+	JS within JSX
+		in order to write JS code within a JSX element. need to wrap it in curly braces
+		import React from 'react';
+		import ReactDOM from 'react-dom';
+		const math = <h1>2 + 3 = {2 + 3}</h1>;
+		ReactDOM.render(math, document.getElementById('app'));
+
+	variables in JSX
+		
+
 

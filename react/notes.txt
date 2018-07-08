@@ -85,6 +85,113 @@ ADVANCED JSX
 		ReactDOM.render(math, document.getElementById('app'));
 
 	variables in JSX
-		
+		can access variables while inside of a JSX expression by using curly braces
+		const name = 'ricky';
+		const greeting = <p>Hello, {name}!</p>;
+
+	variable attributes in JSX
+		can set attributes within the JSX code using JS variables or object properties
+		const sideLength = "200px";
+		const panda = (
+			<img
+				src="images/panda.jpg"
+				alt="panda"
+				height={sideLength}
+				width={sideLength} />
+		);
+		const pics = {
+			panda: "http://bit.ly/1Tqltv5",
+			owl: "http://bit.ly/1XGtkM3",
+			owlCat: "http://bit.ly/1Upbczi"
+		};
+		const panda = (
+			<img
+				src={pics.panda}
+				alt="Lazy Panda" />
+		);
+		const owl = (
+			<img
+				src={pics.owl}
+				alt="Unimpressed Owl" />
+		);
+		const owlCat = (
+			<img
+				src={pics.owlCat}
+				alt="Ghastly Abomination" />
+		);
+
+	event listeners
+		can create an event listener by giving a JSX element a special attribute, where the attribute's name should be the word 'on' plus the type of event that you're listening to
+		this has a list of valid event names
+			https://reactjs.org/docs/events.html#supported-events
+		the value should be a function
+		function myFunc() {
+			alert('Make myFunc the pFunc... omg that was horrible i am so sorry');
+		}
+		<img onClick={myFunc} />
+
+	conditionals
+		if statements don't work within jsx
+
+		ways to solve this:
+			1. write the if statements outside the jsx and depending on the truthy values, the variable will be set to differing JSX
+			2. use the ternary operator within the JSX
+					const headline = (
+						<h1>
+							{ age >= drinkingAge ? 'Buy Drink' : 'Do Teen Stuff' }
+						</h1>
+					);
+					const img = <img src={pics[coinToss() === 'heads' ? 'kitty' : 'doggy']} />;
+			3. && - the && works best in conditionals that will sometimes do an action, but other times do nothing at all
+					const tasty = (
+						<ul>
+							<li>Applesauce</li> // always runs
+							{ !baby && <li>Pizza</li> } // runs if not a baby
+							{ age > 15 && <li>Brussels Sprouts</li> } // runs if over 15
+							{ age > 20 && <li>Oysters</li> }
+							{ age > 25 && <li>Grappa</li> }
+						</ul>
+					);
+
+	.map()
+		must be called on an array
+		iterates through the array and returns an array on the chanegd values
+		used often with jsx
+
+		const strings = ['Home', 'Shop', 'About Me'];
+		const listItems = strings.map(string => <li>{string}</li>);
+		<ul>{listItems}</ul>
+
+	keys
+		lists sometimes need to include keys
+		key='value'
+			'value' must be unique
+			added within <li>
+		need to be added if:
+			1. the list-items have memory from one render to the next. For instance, when a to-do list renders, each item must "remember" whether it was checked off
+			2. a list's order might be shuffled. for instance, a list of searched results might be shuffled from one render to the next
+
+		const people = ['Rowe', 'Prevost', 'Gare'];
+		const peopleLis = people.map((person, i) =>
+			// expression goes here:
+			<li key={'person_' + i}>{person}</li>
+		);
+		// ReactDOM.render goes here:
+		ReactDOM.render(<ul>{peopleLis}</ul>, document.getElementById("app"));
+
+	React.createElement
+		the actual code that JSX is compiled into
+
+		const h1 = <h1>Hello world</h1>;
+		BECOMES
+		const h1 = React.createElement(
+			"h1",
+			null,
+			"Hello, world"
+		);
+
+
+REACT COMPONETS
+
 
 

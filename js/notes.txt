@@ -1093,4 +1093,24 @@ REQUESTS II
 			shortenButton.addEventListener('click', displayShortUrl);
 
 
+OTHER SHIT I LEARNED
+	innerHTML
+		defines the HTML content
+		document.getElementById('id1').innerHTML = 5 + 6;
+
+	document.getElementById('id')
+		allows you to access an HTML element
+
+	document.write()
+		can call document.write() in a js file to print stuff on screen of html file
+		if used after all HTML doc is fully loaded will delete all existing HTML
+		document.write('hello world\n');
+
+	window.alert()
+		creates an alert box to display data
+		window.alert(5 + 6); //alerts 11 on screen
+
+	console.log()
+		prints to console
+
 

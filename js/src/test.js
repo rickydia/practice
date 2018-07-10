@@ -1,16 +1,16 @@
 const starCount = () => {
   let i = 1500;
-  console.log(i);
+  document.write(i + '\n');
   if(true){
     let i = 10;
-    console.log(i);
+    document.write(i + '\n');
   }
   console.log(i);
   for(i = 0; i < 12;i++){
     let i = 0;
-    console.log(i);
+    document.write(i + '\n');
   }
-  console.log(i);
+  document.write(i + '\n');
 };
 
 starCount();

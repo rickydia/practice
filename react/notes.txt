@@ -498,6 +498,59 @@ this.props
 
 
 this.state
+	setting initial state
+		should be declared inside of a constructor method
+		this.state should be equal to an object
+		must always call super within constructor
+
+		class Example extends React.Component {
+			constructor(props) {
+				super(props);
+				this.state = { mood: 'decent', hungry: false };
+			}
+			render() {
+				return <div></div>;
+			}
+		}
+		<Example />
+
+	access a component's state
+		to read a component's state, use the expression this.state.name-of-property
+		{this.state.mood}
+
+	updating state
+		must use this.setState()
+			takes two args
+				arg1 - an object that will update the component's state
+				arg2 - a callback
+					arg2 is almost never needed
+		this.setState({ hungry: true });
+
+	wrapping this.setState()
+		most common way to call this.setState is to call a custom function that wraps a this.setState() call
+
+		class Example extends React.Component {
+			constructor(props) {
+				super(props);
+				this.state = { weather: 'sunny' };
+				this.makeSomeFog = this.makeSomeFog.bind(this);
+			}
+			makeSomeFog() {
+				this.setState({
+					weather: 'foggy'
+				});
+			}
+		}
+
+		this.makeSomeFog = this.makeSomeFog.bind(this);
+			necessary bc nameSomeFog()'s body contains the word 'this'
+
+	this.setState()
+		whenever this is called, it automatically calls .render() as soon as the state has changed
+		therefore, you can't call this.setState from within .render()
+
+
+STATELESS COMPONENTS FROM STATEFUL COMPONENTS
 
 
 

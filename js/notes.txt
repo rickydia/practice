@@ -1113,4 +1113,19 @@ OTHER SHIT I LEARNED
 	console.log()
 		prints to console
 
+	== vs ===
+		===
+			checks for strict equality, meaning both type and value are the same
+			5 === 5						// true
+			5 === '5'					// false
+			false === 0				// false
+			'cat' === 'dog'		// false
+
+		==
+			checks for loose equality, meaning it checks for the same value after trying to make the types the same
+			5 == 5						// true
+			5 == '5'					// true
+			false == 0				// true
+			'cat' == 'dog'		// false
+
 

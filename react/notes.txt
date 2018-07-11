@@ -353,6 +353,151 @@ COMPONENTS RENDER OTHER COMPONENTS
 
 
 this.props
+	def
+		props are the information that gets passed from one component to another
+
+	accessing a component's props
+		access it by using 'this.props'
+
+	passing props to a component
+		can pass info to a component by giving it an attribute
+		passing a string:
+			<MyComponent foo='bar' />
+		passing other things:
+			wrap it in curly braces
+			<MyComponent myInfo={["top", "secret"]} />
+
+	render a component's props
+		render by using this.props.name-of-info
+		this.props.foo
+
+		class Greeting extends React.Component {
+			render() {
+				return <h1>Hi there, {this.props.firstName}</h1>;
+			}
+		}
+		ReactDOM.render(<Greeting firstName='Grob' />, document.getElementById('app'));
+
+	passing props from component to component
+		similar to above, but instead of adding the prop in ReactDOM.render(), add it when you're using it in another component
+		import {Greeting} from './Greeting';
+		class App extends React.Component {
+			render() {
+				return (
+					<div>
+						<h1>
+							Hullo and, "Welcome to The Newzz," "On Line!"
+						</h1>
+						<Greeting name='ricky'/>
+						<article>
+							Latest newzz:  where is my phone?
+						</article>
+					</div>
+				);
+			}
+		}
+		ReactDOM.render(<App />, document.getElementById('app'));
+
+	props used for conditionals
+		props don't need to be rendered, but instead can be used to make decisions within conditionals
+		export class Welcome extends React.Component {
+			render() {
+				if (this.props.name == 'Wolfgang Amadeus Mozart') {
+					return (
+						<h2>
+							hello sir it is truly great to meet you here on the web
+						</h2>
+					);
+				} else {
+					return (
+						<h2>
+							WELCOME "2" MY WEB SITE BABYYY!!!!!
+						</h2>
+					);
+				}
+			}
+		}
+
+	event handler in component class
+		in order to pass an event handler function as a prop, you first need to define an event handler
+		define an event handler as a method on the component class, just like the render method
+
+		class Example extends React.Component {
+			handleEvent() {
+				alert(`I am an event handler.
+					If you see this message,
+					then I have been called.`);
+			}
+			render() {
+				return (
+					<h1 onClick={this.handleEvent}>
+						Hello world
+					</h1>
+				);
+			}
+		}
+
+	pass event handler as a prop
+		same way you'd pass in any other info
+		class Talker extends React.Component {
+			handleClick() {
+				let speech = '';
+					for (let i = 0; i < 10000; i++) {
+						speech += 'blah ';
+					}
+				alert(speech);
+			}
+			render() {
+				return <Button onClick={this.handleClick} />;
+			}
+		}
+
+	recieve event handler as a prop
+		need to attatch the prop as an event handler
+		done by giving that JSX element a special attribute
+		export class Button extends React.Component {
+			render() {
+				return (
+					<button onClick={this.props.onClick}>
+						Click me!
+					</button>
+				);
+			}
+		}
+
+	naming convention
+		can technically be anything, but convention says this:
+			first think of what type of event you're listening for
+				ex: listening for a "click"
+			name of event handler
+				should be "handle" + your event type
+					ex "handleClick"
+			name of prop used to pass the event handler
+				should be "on" + your event type
+					ex: "onClick"
+
+	this.props.children
+		returns everything in between a component's opening and closing JSX tags
+		component's don't have to be self closing tags
+			<ComponentClass />
+			===
+			<ComponentClass> </ComponentClass>
+		this.props.children returns whatever is between the opening and closing tags
+
+	defaultProps
+		if a component is expecting a prop, but doesn't receive one, will be blank
+		can change this by setting default props
+		defaultProps should be set to an object
+
+		class Example extends React.Component {
+			render() {
+				return <h1>{this.props.text}</h1>;
+			}
+		}
+		Example.defaultProps = { text: 'yo' };
+
+
+this.state
 
 
 

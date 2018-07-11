@@ -296,6 +296,63 @@ COMPONENTS AND ADVANCED JSX
 
 
 COMPONENTS RENDER OTHER COMPONENTS
+	component in a render function
+		within a render method, you can also return component instances, which is simply an instance of another component class
+		class OMG extends React.Component {
+			render() {
+				return <h1>Whooaa!</h1>;
+			}
+		}
+		class Crazy extends React.Component {
+			render() {
+				return <OMG />;
+			}
+		}
+
+	importing components
+		imports the component class ComponentName so that you can use it
+		import { ComponentName } from './ComponentName';
+
+	using import
+		just put the component class within the new component class
+			<ComponentName />
+
+		import React from 'react';
+		import ReactDOM from 'react-dom';
+		import {NavBar} from './NavBar';
+		class ProfilePage extends React.Component {
+			render() {
+				return (
+					<div>
+						<NavBar />
+						<h1>All About Me!</h1>
+						<p>I like movies and blah blah blah blah blah</p>
+						<img src="https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-monkeyselfie.jpg" />
+					</div>
+				);
+			}
+		}
+
+	exports
+		need to export components in order to be able to be used within other components
+		use named exports, meaning you put 'export' before something you want to export
+		// Manifestos.js:
+		export const faveManifestos = {
+			futurist: 'http://www.artype.de/Sammlung/pdf/russolo_noise.pdf',
+			SCUM:     'http://www.ccs.neu.edu/home/shivers/rants/scum.html',
+			cyborg:   'http://faculty.georgetown.edu/irvinem/theory/Haraway-CyborgManifesto-1.pdf'
+		};
+		export const alsoRan = 'TimeCube';
+
+		in order to import it, must use curly braces
+		// App.js:
+		// Import faveManifestos and alsoRan from ./Manifestos.js:
+		import { faveManifestos, alsoRan } from './Manifestos';
+		// Use faveManifestos:
+		console.log(`A Cyborg Manifesto:  ${faveManifestos.cyborg}`);
+
+
+this.props
 
 
 

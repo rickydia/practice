@@ -745,6 +745,37 @@ CHILD COMPONENTS UPDATE SIBLING COMPONENTS
 
 
 STYLE
+	inline styles
+		write styles as attributes
+		<h1 style={{color: 'red', background: 'lightblue'}}>Hello World</h1>
+
+	style object variable
+		create an object to hold the styles
+		const style = {
+			color: 'darkcyan',
+			background: 'mintcream',
+			marginTop: '100px',
+			fontSize: '50px'
+		};
+
+	style value synta
+		react assumes you're using px, so you don't need to specify px
+		fontSize: 50;
+		===
+		fontSize: '50px';
+
+
+CONTAINER COMPONENTS VS PRESENTATIONAL COMPONENTS
+	if a component has to have 'state', make calculations based on 'props', or manage any other complex logic, then it shouldn't also have to render JSX
+		instead, it should render a component
+
+	presentational component
+		only job is to render JSX
+	container component
+		computes the logic, figures out what to display
+
+
+STATELESS FUNCTIONAL COMPONENTS
 
 
 

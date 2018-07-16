@@ -881,6 +881,86 @@ FORMS
 
 
 MOUNTING LIFECYLE METHODS
+	def: lifecycle methods - methods that get called at certain moments in a component's life
 
+	mounting
+		a component "mounts" when it renders for the first time
+			this is when mounting lifecycle methods get called
+		three mounting lifecycle methods
+			1. componentWillMount
+			2. render
+			3. componentDidMount
+		when a component mounts, it automatically called these three methods
+
+	componentWillMount
+		when a component renders for the first time, componentWillMount gets called right before the render
+
+	render
+		belongs to two categories: mounting lifecycle methods and updating lifecycle methods
+
+	componentDidMount
+		when a component renders for the first time, componentDidMount gets called right after the render
+		a good place to connect a React app to external apps, such as web APIs or JS frameworks
+
+
+UPDATING/UNMOUNTING LIFECYCLE METHODS
+	updating lifecycle methods	
+		def: a component updates every time that it renders, starting with the second render
+		five updating lifecycle methods
+			1. componentWillReceiveProps
+			2. shouldComponentUpdate
+			3. componentWillUpdate
+			4. render
+			5. componentDidUpdate
+
+	componentWillReceiveProps
+		only gets called if the component will receive props
+		large use case: comparing imcoming props to current props or state, and deciding what to render based on that comparison
+		export class Example extends React.Component {
+			componentWillReceiveProps(nextProps) {
+				alert("Check out the new props.text that I'm about to get:  " + nextProps.text);
+			}
+			render() {
+				return <h1>{this.props.text}</h1>;
+			}
+		}
+		// The first render won't trigger
+		// componentWillReceiveProps:
+		ReactDOM.render(<Example text="Hello world" />, document.getElementById('app'));
+		// After the first render,
+		// subsequent renders will trigger
+		// componentWillReceiveProps:
+		setTimeout(() => {
+			ReactDOM.render(<Example text="Hello world" />, document.getElementById('app'));
+		}, 1000);
+
+	shouldComponentUpdate
+		get's called after componentWillReceiveProps, but before render
+		should return either true or false
+			if true, nothing noticible really happens
+			if false, then the component will not update
+			should only return false under certain circumstances
+		receives two args: nextProps and nextState
+
+	componentWillUpdate
+		gets called in between shouldComponentUpdate and render
+		receives two args: nextProps and nextState
+		cannot call this.setState
+		main purpise is to interact with things outside the React architecture
+			
+	componentDidUpdate
+		gets called after any rendered HTML has finished loading
+		gets passed two args: prevProps and prevState
+			those are references to the props and state before the current updating period began
+		typically used to interact with things outside the React environment
+
+	unmounting
+		a component's unmounting period occurs when the component is removed from the DOM
+		could happen if the DOM is rerendered without the component, or if the user navigates to a different website or closes their web browser
+
+	componentWillUnmount
+		only unmounting lifecycle method
+		gets called right before the component is removed from the DOM
+		if a component initiates any methods that require cleanup, then this is where you should put that cleanup
 
 

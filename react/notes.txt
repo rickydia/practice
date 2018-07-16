@@ -776,6 +776,111 @@ CONTAINER COMPONENTS VS PRESENTATIONAL COMPONENTS
 
 
 STATELESS FUNCTIONAL COMPONENTS
+	def: stateless functional component - a component class written as a function
+	if a component class only has a render function, can be rewritten as a function
+
+	// Normal way to display a prop:
+	export class MyComponentClass extends React.Component {
+		render() {
+			return <h1>{this.props.title}</h1>;
+		}
+	}
+	// Stateless functional component way to display a prop:
+	export const MyComponentClass = (props) => {
+		return <h1>{props.title}</h1>;
+	}
+	// Normal way to display a prop using a variable:
+	export class MyComponentClass extends React.component {
+		render() {
+			let title = this.props.title;
+			return <h1>{title}</h1>;
+		}
+	}
+	// Stateless functional component way to display a prop using a variable:
+	export const MyComponentClass = (props) => {
+		let title = props.title;
+		return <h1>{title}</h1>;
+	}
+
+
+PROPTYPES
+	useful for two reasons:
+		1. prop validation
+				ensures that your props are doing what they're supposed to be doing
+				if props are missing or if they're not doing what's expected, can log to console
+		2. documentation
+				allows you to quickly glance at a file and understand the component class
+
+	apply proptypes
+		steps to making a propType
+			1. search for a property named propTypes. if none is made, make one
+					needs to be declared after the close of your component declaration
+					value of propTypes is an object
+			2. add a property to the propTypes
+					for each prop that component class expects to receive, there can only be one property on your propTypes
+
+		export class MessageDisplayer extends React.Component {
+			render() {
+				return <h1>{this.props.message}</h1>;
+			}
+		}
+		// This propTypes object should have one property for each expected prop:
+		MessageDisplayer.propTypes = {
+			message: React.PropTypes.string
+		};
+
+	properties to propTypes
+		the name of each property in propTypes should be the name of the expected prop
+		the value should fit this pattern
+			React.PropTypes.expected-data-type-goes-here
+				i.e. React.PropTypes.string
+		if you add .isRequired to a propTypem then you will get a console warning if that prop isn't sent
+				i.e. React.PropTypes.object.isRequired
+
+	PropTypes in stateless function components
+		pretty much same thing as in component classes??
+
+		const Example = (props) => {
+			return <h1>{props.message}</h1>;
+		}
+		Example.propTypes = {
+			message: React.PropTypes.string.isRequired
+		};
+
+
+FORMS
+	purpose is to update the server any time a user enters or deletes any character
+
+	export class Input extends React.Component {
+		constructor(props){
+			super(props);
+			this.state = { userInput: '' };
+			this.handleUserInput = this.handleUserInput.bind(this);
+		}
+		handleUserInput(e) {
+			this.setState({
+				userInput: e.target.value
+			});
+		}
+		render() {
+			return (
+				<div>
+					<input type="text" onChange={this.handleUserInput} value={this.state.userInput} />
+					<h1>{this.state.userInput}</h1>
+				</div>
+			);
+		}
+	}
+	ReactDOM.render(<Input />, document.getElementById('app'));
+
+	uncontrolled component
+		a component that maintains its own internal state
+	controlled compoennt
+		a component that does not maintain any internal state
+		has no state, so must be controlled by someone else
+
+
+MOUNTING LIFECYLE METHODS
 
 
 

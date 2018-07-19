@@ -904,7 +904,7 @@ MOUNTING LIFECYLE METHODS
 
 
 UPDATING/UNMOUNTING LIFECYCLE METHODS
-	updating lifecycle methods	
+	updating lifecycle methods
 		def: a component updates every time that it renders, starting with the second render
 		five updating lifecycle methods
 			1. componentWillReceiveProps
@@ -947,7 +947,7 @@ UPDATING/UNMOUNTING LIFECYCLE METHODS
 		receives two args: nextProps and nextState
 		cannot call this.setState
 		main purpise is to interact with things outside the React architecture
-			
+
 	componentDidUpdate
 		gets called after any rendered HTML has finished loading
 		gets passed two args: prevProps and prevState

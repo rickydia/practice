@@ -8,6 +8,8 @@ const Input = (props) => {
 		<View style={containerStyle}>
 			<Text style={labelStyle}>{props.label}</Text>
 			<TextInput
+				secureTextEntry={props.secureTextEntry}
+				placeholder={props.placeholder}
 				autoCorrect={false}
 				value={props.value}
 				onChangeText={props.onChangeText}

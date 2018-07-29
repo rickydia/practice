@@ -29,7 +29,7 @@ class EmployeeList extends React.Component {
 
 const mapStateToProps = state => {
 	const employees = _.map(state.employees, (val, uid) => {
-		return { ...val, uid}; // returns something like { shift: 'Sunday', name: 'Jane', id: '1a2b3c' }
+		return { ...val, uid}; // returns something like { shift: 'Sunday', name: 'Jane', uid: '1a2b3c' }
 	});
 
 	return { employees };

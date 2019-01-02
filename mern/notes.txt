@@ -1,0 +1,45 @@
+generating a node project
+    cd $PROJECT
+    npm init
+        hit enter
+install express
+    npm install --save express
+
+node - js runtime used to execute code outside of the browser
+express - library that runs in the node runtime. has helpers that makes dealing with HTTP trafic easier
+
+deployment checklist (DONE ONE TIME)
+    dynamic port binding
+        heroku will tell us which port out app will use, so we need to make sure we listen to the port they tell us to
+            we did process.env.PORT
+    specify node environment
+        we want to use a specific version of node, so we need to tell heroku which version to use
+            we put it in the package.json
+                "engines": {
+                  "node": "8.1.1",
+                  "npm": "5.0.3"
+                },
+    specify start script
+        instruct heroku what commande to run to start our server running
+            we put it in the package.json
+                "scripts": {
+                  "start": "node index.js"
+                },
+    create .gitignore file
+        we don't want to include dependencies, heroku will do that for us
+            we ignores node_modules
+
+first time deploy
+    1. create heroku account
+    2. commit our codebase to git
+    3. install heroku CLI and create app
+    4. deploy app with git
+    5. heroku deploys project
+subsequent deploys
+    1. commit codebase with git
+    2. deploy app with git
+
+
+DEFINITIONS
+express - library that runs in the node runtime. has helpers that makes dealing with HTTP trafic easier
+node - js runtime used to execute code outside of the browser

@@ -33,7 +33,9 @@ first time deploy
     1. create heroku account
     2. commit our codebase to git
     3. install heroku CLI and create app
+        heroku create
     4. deploy app with git
+        get the second link that's outputted from prev command and push there
     5. heroku deploys project
 subsequent deploys
     1. commit codebase with git

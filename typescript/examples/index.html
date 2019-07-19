@@ -4,9 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>TypeScript</title>
-    <script type="text/javascript" src="./app.js"></script>
+    <script type="text/javascript" src="node_modules/systemjs/dist/system.js"></script>
 </head>
 <body>
 hello
+<script>
+    SystemJS.config({
+        baseURL: '/',
+        packages: {
+            '/': {
+                defaultExtension: 'js'
+            }
+        }
+    });
+    SystemJS.import('app.js');
+</script>
 </body>
 </html>

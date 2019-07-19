@@ -1,0 +1,148 @@
+What is TypeScript?
+    A wrapper around JS that compiles down to ES5 JS
+    Basically just adds things to JS that
+
+SETTING UP A NEW WORKDIR
+    create directory for files
+    run `npm init`
+    run `npm install lite-server --save-dev`
+        lite-server is a light server that hosts the index.html file and automatically updates whenever update JS code
+        --save-dev flag makes it known that you only need this dependency in your dev env and not when you ship the code
+    in package.json, under "scripts", add
+        "start": "lite-server"
+    run `npm start`
+        it opens a new tab in the browser and serves the index.html file
+    run `tsc --init`
+       makes folder under control of typescript
+       creates tsconfig.json
+    run `tsc`
+        the config files makes it so that it searches for all TypeScript files and compiles them
+
+TYPES
+    types are static
+
+    string
+        let myName = 'Max';
+        let myName: string = 'Max';
+
+    number
+        let myAge = 20;
+        let myAge: number = 20
+        myAge = 20.8;
+
+    boolean
+        let hasHobbies = false;
+        let hasHobbies: boolean = false;
+        hasHobbies = 1;             // ERROR: numbers can't be set to booleans
+
+    assign types
+        let myRealAge;
+        myRealAge = 27;
+        myRealAge = '27';
+
+        let myActualAge: number;
+        myActualAge = 27;
+        myActualAge = '27';         // ERROR: type was set to number so setting it to string errors out
+
+    array
+        let hobbies = ["cooking", "sports"];
+        hobbies = [100];            // ERROR: type 'number[]' is not assignable to type 'string[]'
+        let anyHobbies: any[] = ["a", "b"];
+        anyHobbies = [100];
+
+    tuples
+        let address: [string, number] = ["Main st", 123];
+
+    enum
+        enum Color {
+            Gray,           // 0
+            Green = 100,    // 100
+            Blue = 3        // 2
+        }
+        let myColor: Color = Color.Green;
+
+    any
+        let car: any = "BMW";
+        car = { brand: "BMW", series: 3 };
+
+    Functions
+        return types
+            let myName: string = "jose":
+            function returnMyName(): string {
+                return myName;
+            }
+        void
+            function sayHello(): void {
+                console.log("HIYA");
+                return myName;      // ERROR: it's a void function but is returning things
+            }
+        argument types
+            function multiply(val1: number, val2: number): number {
+                return val1 * val2;
+            }
+        function types
+            let myMultiply: (val1: number, val2: number) => number;
+            myMultiply = sayHello;  // ERROR: sayHello doesn't fit the function definition that was set
+            myMultiply();
+            myMultiply = multiply;
+            myMultiply(2, 3);
+
+    Objects
+        let userData = {
+            name: "Max",
+            age: 27
+        };
+        userData = {};              // ERROR: type '{}' is not assignable to type '{ name: string; age: number; }'
+        userData = {                // ERROR: the name of the properties is also important
+            a: "hello",
+            b: 22
+        };
+        let data: { name: string, age: number };
+
+        Complex Object
+            let complex: {data: number[], output: (all: boolean) => number[]} = {
+                data: [100, 3.99, 10],
+                output: function (all: boolean): number[] {
+                    return this.data;
+                }
+            }
+
+            type Complex = {data: number[], output: (all: boolean) => number[]};
+
+            let complex2: Complex;
+
+    union types
+        let realAge: number | string = 27;
+        realAge = "27";
+        realAge = true;             // ERROR: not a number or string
+
+    check types
+        let finalValue = "A string";
+        if (typeof finalValue == "string") {
+            console.log("finalValue is a string");
+        } else if (typeof finalValue == "number") {
+            console.log("finalValue is a number");
+        }
+
+    never types
+        function neverReturns(): never {
+            throw new Error('An error!')
+        }
+
+    nullable types
+        // "strictNullChecks": false
+        let canBeNull = 12;
+        canBeNull = null;
+        let canAlsoBeNull;
+        canAlsoBeNull = null;
+
+        if you go to tsconfig.json in compilerOptions and set "strictNullChecks" to true, then things can't be set to null unless explicitly defined
+        let canBeNull: number | null = 12;
+        canBeNull = null;
+        let canAlsoBeNull;
+        canAlsoBeNull = null;
+        let canThisBeAny = null;
+        canThisBeAny = 12;          // ERROR: can't set number to type null
+
+
+

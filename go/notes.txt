@@ -1,0 +1,832 @@
+PACKAGES
+	programs start running in main.
+	ex:
+		package main
+		import (
+				"fmt"
+				"math/rand"
+				)
+
+		func main() {
+			fmt.Println("My favorite number is", rand.Intn(10))
+		}
+
+
+IMPORTS
+	two styles:
+		factored:
+			import (
+				"fmt"
+				"math"
+			)
+
+		multiple statements:
+			import "fmt"
+			import "math"
+
+	better to use factored import statements.
+
+
+EXPORTED NAMES
+	a name is exported if it begins with a capital letter.
+	ex:
+		math.Pi      <---------- exported name
+		math.pi      <---------- unexported (causes error)
+
+
+FUNCTIONS
+	can take 0 or more args.
+	type comes AFTER var name.
+	ex:
+		package main
+		import "fmt"
+		func add(x int, y int) int {
+			return x + y
+		}
+		func main() {
+			fmt.Println(add(42, 13))
+		}
+
+	if two or more args share a type, you can omit the type for all but the last one.
+	ex:
+		func add(x int, y int) int {
+				BECOMES
+		func add(x, y int) int {
+
+	functions can return as many things as it wants
+	ex:
+		func swap(x, y string) (string, string) {
+			return y, x
+		}
+
+		func main() {
+			a, b := swap("hello", "world")
+			fmt.Println(a, b)
+		}
+
+	return values can be names.
+	a return statement without arguments returns the named return values (naked returns).
+	naked return statements should be used only in short functions.
+	ex:
+		func split(sum int) (x, y int) {
+			x = sum * 4 / 9
+			y = sum - x
+			return
+		}
+
+		func main() {
+			fmt.Println(split(100))
+		}
+
+	are also values.
+	can be passed in as func args and ret vals
+	ex:
+		func compute(fn func(float64, float64) float64) float64 {
+			return fn(3, 4)
+		}
+
+		func main() {
+			hypot := func(x, y float64) float64 {
+				return math.Sqrt(x*x + y*y)
+			}
+			fmt.Println(hypot(5, 12))
+
+			fmt.Println(compute(hypot))
+			fmt.Println(compute(math.Pow))
+		}
+
+	Closure
+		each closure is bound to its own variables
+		ex:
+			func adder() func(int) int {
+				sum := 0
+				return func(x int) int {
+					sum += x
+					return sum
+				}
+			}
+
+			func main() {
+				pos, neg := adder(), adder()
+				for i := 0; i < 10; i++ {
+					fmt.Println(
+						pos(i),
+						neg(-2*i),
+					)
+				}
+			}
+
+
+METHODS
+
+
+VARIABLES
+	the var statement declares a list of variables.
+	ex:
+		var c, python, java bool
+
+		func main() {
+			var i, x, y [2]int
+			fmt.Println(i, x[0], y, c, python, java)
+		}
+
+	a var declaration can include initializers, one per variable.
+	if an initializer is present, the type can be omitted.
+	ex:
+		var i, j int = 1, 2
+
+		func main() {
+			var c, python, java = true, false, "no!"
+			fmt.Println(i, j, c, python, java)
+		}
+
+	if inside a function, can use short assignment statements (:=) in place of var with implicit type.
+	ex:
+		func main() {
+			var i, j int = 1, 2
+			k := 3
+			c, python, java := true, false, "no!"
+
+			fmt.Println(i, j, k, c, python, java)
+		}
+
+
+TYPES
+	basic types:
+		bool
+
+		string
+
+		int  int8  int16  int32  int64
+		uint uint8 uint16 uint32 uint64 uintptr
+
+		byte // alias for uint8
+
+		rune // alias for int32
+		     // represents a Unicode code point
+
+		float32 float64
+
+		complex64 complex128
+
+	int, uint, and uintptr types are usually 32 bits wide on 32-bit systems and 64 bits wide on 64-bit systems.
+
+	ex:
+		import (
+			"fmt"
+			"math/cmplx"
+		)
+
+		var (
+			ToBe   bool       = false
+			MaxInt uint64     = 1<<64 - 1
+			z      complex128 = cmplx.Sqrt(-5 + 12i)
+		)
+
+		func main() {
+			fmt.Printf("Type: %T \t\t Value: %v\n", ToBe, ToBe)
+			fmt.Printf("Type: %T \t\t Value: %v\n", MaxInt, MaxInt)
+			fmt.Printf("Type: %T \t Value: %v\n", z, z)
+		}
+
+	variables declared without an explicit initial value are given their zero value.
+	zero values:
+		0 for numeric types
+		false for the boolean type
+		"" (the empty string) for strings
+
+	Type Conversions
+		the expression T(v) converts the value v to the type T.
+		in Go assignment between items of different type requires an explicit conversion.
+		ex:
+			var i int = 42
+			var f float64 = float64(i)
+			var u uint = uint(f)
+			i := 42
+			f := float64(i)
+			u := uint(f)
+
+	Type Inference
+		When declaring a variable without specifying an explicit type (either by using the := syntax
+		or var = expression syntax), the variable's type is inferred from the value on the right hand side
+		i := 42           // int
+		f := 3.142        // float64
+		g := 0.867 + 0.5i // complex128
+
+	Constants
+		declared using const keyword and = (CANNOT USE :=)
+		ex:
+			const Pi = 3.14
+
+			func main() {
+				const World = "世界"
+				fmt.Println("Hello", World)
+				fmt.Println("Happy", Pi, "Day")
+
+				const Truth = true
+				fmt.Println("Go rules?", Truth)
+			}
+
+	Numeric Constants
+		numeric constants are high-precision values.
+		an untyped constant takes the type needed by its context.
+
+
+CONTROL FLOW
+	For Loop
+		similar to c loops.
+		ex:
+			func main() {
+				sum := 0
+				for i := 0; i < 10; i++ {
+					sum += i
+				}
+				fmt.Println(sum)
+			}
+
+	Range
+		when ranging over a slice, two values are returned for each iteration.
+		the first is the index, second is a copy of the element at that index.
+		ex:
+			var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+
+			func main() {
+				for i, v := range pow {
+					fmt.Printf("2**%d = %d\n", i, v)
+				}
+			}
+
+		can skip the index or value by assigning to _.
+		if only want index, can omit second variable.
+		ex:
+			for i, _ := range pow
+			for _, value := range pow
+			for i := range pow
+
+	Basically a While Loop
+		the init and post statements are optional
+		ex:
+		func main() {
+			sum := 1
+			for sum < 1000 {
+				sum += sum
+			}
+			fmt.Println(sum)
+		}
+
+	While True Loop
+		for {
+		}
+
+	If Statement
+		normal:
+			if x < 0 {
+				return sqrt(-x) + "i"
+			}
+
+		can start with short statement:
+			if v := math.Pow(x, n); v < lim {
+				return v
+			}
+
+			variables declared inside an if short statment are also available inside any of the else blocks
+			ex:
+				if v := math.Pow(x, n); v < lim {
+					return v
+				} else {
+					fmt.Printf("%g >= %g\n", v, lim)
+				}
+
+	Switch Case
+		similar to C, but no need for break statements.
+		need not be constants, values need not be integers.
+		ex:
+			switch os := runtime.GOOS; os {
+			case "darwin":
+				fmt.Println("OS X.")
+			case "linux":
+				fmt.Println("Linux.")
+			default:
+				// freebsd, openbsd,
+				// plan9, windows...
+				fmt.Printf("%s.\n", os)
+			}
+
+		Switch Without Condition
+			same as switch true.
+			cleaner way to write long if-then-else chains.
+			ex:
+				func main() {
+					t := time.Now()
+					switch {
+					case t.Hour() < 12:
+						fmt.Println("Good morning!")
+					case t.Hour() < 17:
+						fmt.Println("Good afternoon.")
+					default:
+						fmt.Println("Good evening.")
+					}
+				}
+
+	Defer
+		defers the execution of a function until the surrounding function returns.
+		arguments evaluated immediately, but the function call is not executed until the surrounding function returns.
+		ex:
+			func main() {
+				defer fmt.Println("world")
+
+				fmt.Println("hello")
+			}
+
+		DEFERRED FUCNTION CALLS ARE PUSHED ONTO A STACK
+			ex:
+				func main() {
+					fmt.Println("counting")
+
+					for i := 0; i < 10; i++ {
+						defer fmt.Println(i)
+					}
+
+					fmt.Println("done")
+				}
+				// prints 9, 8, ..., 0
+
+		Kind of like RAII for closing files or destructors?
+
+
+POINTERS
+	the type *T is a pointer to a T value. Its zero value is nil.
+	ex:
+		var p *int
+
+	the & operator generates a pointer to its operand
+	ex:
+		i := 42
+		p = &i
+
+	can be dereferenced using *p.
+	NO POINTER ARITHMETIC!
+
+
+STRUCTS
+	ex:
+		type Vertex struct {
+			X int
+			Y int
+		}
+
+	Pointer to Structs
+		struct fields can be accessed through a struct pointer.
+		accessing a field can be done using dot notation.
+		ex:
+			type Vertex struct {
+				X int
+				Y int
+			}
+
+			func main() {
+				v := Vertex{1, 2}
+				p := &v
+				p.X = 1e9
+				fmt.Println(v)
+			}
+
+	Struct Literals
+		you can list just a subset of fields by using the Name: syntax
+		ex:
+			type Vertex struct {
+				X, Y int
+			}
+
+			var (
+				v1 = Vertex{1, 2}  // has type Vertex
+				v2 = Vertex{X: 1}  // Y:0 is implicit
+				v3 = Vertex{}      // X:0 and Y:0
+				p  = &Vertex{1, 2} // has type *Vertex
+			)
+
+			func main() {
+				fmt.Println(v1, p, v2, v3)
+			}
+
+
+ARRAYS
+	[n]T is an array of n values of type T
+	ex:
+		var a [10]int  <---------------- declares a variable a as an array of ten integers
+
+	cannot be resized
+
+
+SLICES
+	a slice is a dynamically-sized, flexible view INTO THE ELEMENTS OF AN ARRAY.
+	a slice is formed by specifying two indices, a low and high bound, separated by a colon.
+	ex:
+		a[low : high]
+
+		func main() {
+			primes := [6]int{2, 3, 5, 7, 11, 13}
+
+			var s []int = primes[1:4]
+			fmt.Println(s)
+		}
+
+	MODIFYING ELEMENTS IN A SLICE MODIFIES THE CORRESPONDING ELEMENTS OF ITS UNDERLYING ARRAY
+
+	Slice Defaults
+		you may omit the high or low bounds to use their defaults instead.
+		the defualt is zero for the low bound and the length of the slice for the high bound.
+		ex:
+			func main() {
+				s := []int{2, 3, 5, 7, 11, 13}
+
+				s = s[1:4]
+				fmt.Println(s)
+
+				s = s[:2]
+				fmt.Println(s)
+
+				s = s[1:]
+				fmt.Println(s)
+			}
+
+	Length vs Capacity
+		length - number of elements it contains
+		capacity - number of elements in the underlying array, counting from the first element in the slice
+
+		length and capacity of a slice s can be obtained using the expressions len(s) and cap(s)
+
+		can extend a slice's length by re-slicing it.
+		ex:
+			func main() {
+				s := []int{2, 3, 5, 7, 11, 13}
+				printSlice(s)
+
+				// Slice the slice to give it zero length.
+				s = s[:0]
+				printSlice(s)
+
+				// Extend its length.
+				s = s[:4]
+				printSlice(s)
+
+				// Drop its first two values.
+				s = s[2:]
+				printSlice(s)
+			}
+
+			func printSlice(s []int) {
+				fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+			}
+
+	the zero value of a slice is nil.
+	a nil slice has a length and capacity of 0 and has no underlying array.
+
+	Make
+		allows for creation of dynamically-sized arrays.
+		make function allocates a zeroed array and returns a slice that refers to that array.
+		to specify a capacity, pass a third arg to make.
+		ex:
+			a := make([]int, 5)  // len(a)=5
+
+			b := make([]int, 0, 5) // len(b)=0, cap(b)=5
+			b = b[:cap(b)] // len(b)=5, cap(b)=5
+			b = b[1:]      // len(b)=4, cap(b)=4
+
+	Appending to a Slice
+		func append(s []T, vs ...T) []T
+
+		ex:
+			func main() {
+				var s []int
+				printSlice(s)
+
+				// append works on nil slices.
+				s = append(s, 0)
+				printSlice(s)
+
+				// The slice grows as needed.
+				s = append(s, 1)
+				printSlice(s)
+
+				// We can add more than one element at a time.
+				s = append(s, 2, 3, 4)
+				printSlice(s)
+			}
+
+			func printSlice(s []int) {
+				fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+			}
+
+
+MAPS
+	maps keys to values.
+	the zero value of a map is nil.
+	a nil map has no keys, nor can keys be added.
+	the make function returns a map of the given type.
+	syntax:
+		map[key_type]val_type
+	ex:
+		type Vertex struct {
+			Lat, Long float64
+		}
+
+		var m map[string]Vertex
+
+		func main() {
+			m = make(map[string]Vertex)
+			m["Bell Labs"] = Vertex{
+				40.68433, -74.39967,
+			}
+			fmt.Println(m["Bell Labs"])
+		}
+
+	Map Literals
+		like struct literals, but the keys are required
+		ex:
+			type Vertex struct {
+				Lat, Long float64
+			}
+
+			var m = map[string]Vertex{
+				"Bell Labs": Vertex{
+					40.68433, -74.39967,
+				},
+				"Google": Vertex{
+					37.42202, -122.08408,
+				},
+			}
+
+		if top-level type is just a type name, you can omit it from the elements of the literal.
+		ex:
+			var m = map[string]Vertex{
+				"Bell Labs": {40.68433, -74.39967},
+				"Google":    {37.42202, -122.08408},
+			}
+
+		Mutating Maps
+			Insert or update an element in map m:
+				m[key] = elem
+			Retrieve an element:
+				elem = m[key]
+			Delete an element:
+				delete(m, key)
+			Test that a key is present with a two-value assignment:
+				elem, ok = m[key]
+			If key is in m, ok is true. If not, ok is false.
+			If key is not in the map, then elem is the zero value for the map's element type.
+
+			Note: If elem or ok have not yet been declared you could use a short declaration form:
+				elem, ok := m[key]
+
+
+METHODS
+	a method is a function with a special receiver arg.
+	the receiver appears between func keyword and method name.
+	ex:
+		type Vertex struct {
+			X, Y float64
+		}
+
+		func (v Vertex) Abs() float64 {
+			return math.Sqrt(v.X*v.X + v.Y*v.Y)
+		}
+
+		func main() {
+			v := Vertex{3, 4}
+			fmt.Println(v.Abs())
+		}
+
+	methods can be added to non-structs as well, but type needs to be defined in the same package as the method.
+
+	Pointer Receivers
+		methods with pointer receivers can modify the value to which the receiver points.
+		ex:
+			func (v *Vertex) Scale(f float64) {
+				v.X = v.X * f
+				v.Y = v.Y * f
+			}
+
+	all methods on a given type should have either value or pointer receivers, but not a mixture of both.
+
+
+INTERFACES
+	an interface type is defined as a set of method signatures.
+	a value of interface type can hold any value that implements those methods.
+	ex:
+		package main
+
+		import (
+			"fmt"
+			"math"
+		)
+
+		type I interface {
+			M()
+		}
+
+		type T struct {
+			S string
+		}
+
+		func (t *T) M() {
+			fmt.Println(t.S)
+		}
+
+		type F float64
+
+		func (f F) M() {
+			fmt.Println(f)
+		}
+
+		func main() {
+			var i I
+
+			i = &T{"Hello"}
+			describe(i)
+			i.M()
+
+			i = F(math.Pi)
+			describe(i)
+			i.M()
+		}
+
+		func describe(i I) {
+			fmt.Printf("(%v, %T)\n", i, i)
+		}
+
+	the empty interface may hold values of any type.
+
+	Type Assertion
+		a type assertion provides access to an interface value's underlying concrete value.
+		ex:
+			t := i.(T)
+		this statement asserts that the interface value i holds the concrete type T and assigns
+		the underlying T value to the variable t.
+
+		to test whether an interface value holds a specific type, a type assertion can return two values:
+		the underlying value and a boolean value that reports whether the assertion succeeded.
+		ex:
+			t, ok := i.(T)
+		if i holds a T, then t will be the underlying value and ok will be true.
+		if not, ok will be false and t will be the zero value of type T, and no panic occurs.
+
+	Type Switches
+		used to find type and do stuff based off that.
+		ex:
+			func do(i interface{}) {
+				switch v := i.(type) {
+				case int:
+					fmt.Printf("Twice %v is %v\n", v, v*2)
+				case string:
+					fmt.Printf("%q is %v bytes long\n", v, len(v))
+				default:
+					fmt.Printf("I don't know about type %T!\n", v)
+				}
+			}
+
+			func main() {
+				do(21)
+				do("hello")
+				do(true)
+			}
+
+	Stringer
+		a type that can describe itself as a string.
+		ex:
+			import "fmt"
+
+			type Person struct {
+				Name string
+				Age  int
+			}
+
+			func (p Person) String() string {
+				return fmt.Sprintf("%v (%v years)", p.Name, p.Age)
+			}
+
+			func main() {
+				a := Person{"Arthur Dent", 42}
+				z := Person{"Zaphod Beeblebrox", 9001}
+				fmt.Println(a, z)  <----------------------- prints "Arthur Dent (42 years) Zaphod Beeblebrox (9001 years)"
+			}
+
+	Error
+		like stringer, fmt will use your error interface if possible
+		ex:
+			type MyError struct {
+				When time.Time
+				What string
+			}
+
+			func (e *MyError) Error() string {
+				return fmt.Sprintf("at %v, %s",
+					e.When, e.What)
+			}
+
+			func run() error {
+				return &MyError{
+					time.Now(),
+					"it didn't work",
+				}
+			}
+
+			func main() {
+				if err := run(); err != nil {
+					fmt.Println(err)  <------------------- prints "at 2009-11-10 23:00:00 +0000 UTC m=+0.000000001, it didn't work"
+				}
+			}
+
+	Readers
+		represents the read end of a stream of data.
+		ex:
+			import (
+				"fmt"
+				"io"
+				"strings"
+			)
+
+			func main() {
+				r := strings.NewReader("Hello, Reader!")
+
+				b := make([]byte, 8)
+				for {
+					n, err := r.Read(b)
+					fmt.Printf("n = %v err = %v b = %v\n", n, err, b)
+					fmt.Printf("b[:n] = %q\n", b[:n])
+					if err == io.EOF {
+						break
+					}
+				}
+			}
+
+		TODO:
+			GO OVER READERS MORE
+			START SLIDE 21
+
+	Images
+		TODO:
+			GO OVER IMAGES MORE
+			START AFTER READERS
+
+
+CONCURRENCY
+	Goroutines
+		a goroutine is a lightweight thread managed by the Go runtime.
+			go f(x, y, z)
+		starts a new goroutine running:
+			f(x, y, z)
+
+		the evaluation of f, x, y, and z happens in the current goroutine and the execution of f happens in the new goroutine.
+
+	Channels
+		channels are a typed conduit through which you can send and receive values with the channel operator, <-.
+		ch <- v    // Send v to channel ch.
+		v := <-ch  // Receive from ch, and
+		           // assign value to v.
+
+		channels must be created before use:
+			ch := make(chan int)
+
+		ex:
+			func sum(s []int, c chan int) {
+				sum := 0
+				for _, v := range s {
+					sum += v
+				}
+				c <- sum // send sum to c
+			}
+
+			func main() {
+				s := []int{7, 2, 8, -9, 4, 0}
+
+				c := make(chan int)
+				go sum(s[:len(s)/2], c)
+				go sum(s[len(s)/2:], c)
+				x, y := <-c, <-c // receive from c
+
+				fmt.Println(x, y, x+y)
+			}
+
+	Buffered Channels
+		provide the buffer length as the second argument to make to initialize a buffered channel:
+			ch := make(chan int, 100)
+
+		sends to a buffered channel block only when the buffer is full.
+		receives block when the buffer is empty.
+
+	Range and Close
+		a sender can close a channel to indicate that no more values will be sent.
+		receivers can test whether a channel has been closed by assigning a second parameter to the receive expression: after
+			v, ok := <-ch
+		ok is false if there are no more values to receive and the channel is closed.
+
+		the loop for i := range c receives values from the channel repeatedly until it is closed.
+
+		Note: Only the sender should close a channel, never the receiver. Sending on a closed channel will cause a panic.
+
+		Another note: Channels aren't like files; you don't usually need to close them.
+			Closing is only necessary when the receiver must be told there are no more values coming, such as to terminate a range loop.
+
+	Select
+
